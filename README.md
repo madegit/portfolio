@@ -58,6 +58,10 @@ bun install   # or npm install
 bun run dev   # or npm run dev
 ```
 
+## Make it yours
+
+Fork it, run it, and turn it into your own story. The code is [MIT-licensed](LICENSE); my photos, story and project screenshots aren't, so swap in yours. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to adapt it, report a bug, or suggest an improvement, and show me what you build.
+
 ## Contact
 
 [nidhiyp05@gmail.com](mailto:nidhiyp05@gmail.com) · [LinkedIn](https://www.linkedin.com/in/nidhi-prajapati-5b4483248/) · [GitHub](https://github.com/SomehowLiving) · [X](https://x.com/pnyk05)
