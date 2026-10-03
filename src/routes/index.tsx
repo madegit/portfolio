@@ -1552,6 +1552,8 @@ function CuriousCursor({ visible }: { visible: boolean }) {
   const [comment, setComment] = useState<CursorComment | null>(null);
   const [typed, setTyped] = useState("");
   const [moved, setMoved] = useState(false);
+  // Re-places the bubble without the pointer moving (e.g. as text types out).
+  const reposition = useRef(() => {});
 
   useEffect(() => {
     const target = { x: -200, y: -200 };
@@ -1560,8 +1562,30 @@ function CuriousCursor({ visible }: { visible: boolean }) {
     const tick = () => {
       pos.x += (target.x - pos.x) * 0.28;
       pos.y += (target.y - pos.y) * 0.28;
-      if (ref.current) ref.current.style.transform = `translate3d(${pos.x + 14}px, ${pos.y + 16}px, 0)`;
+      const el = ref.current;
+      if (el) {
+        // Near the right or bottom edge, the bubble flips to the other side of
+        // the pointer so it never runs off screen.
+        const bubble = el.firstElementChild as HTMLElement | null;
+        const w = bubble?.offsetWidth ?? 0;
+        const h = bubble?.offsetHeight ?? 0;
+        const left = pos.x + 14 + w > window.innerWidth - 8;
+        const up = pos.y + 16 + h > window.innerHeight - 8;
+        const x = left ? pos.x - 14 - w : pos.x + 14;
+        const y = up ? pos.y - 16 - h : pos.y + 16;
+        el.style.transform = `translate3d(${Math.max(8, x)}px, ${Math.max(8, y)}px, 0)`;
+        // the sharp corner always points back at the cursor
+        if (bubble) {
+          const r = ["24px", "24px", "24px", "24px"];
+          r[up ? (left ? 2 : 3) : left ? 1 : 0] = "2px";
+          bubble.style.borderRadius = r.join(" ");
+          bubble.style.transformOrigin = `${up ? "bottom" : "top"} ${left ? "right" : "left"}`;
+        }
+      }
       frame = Math.abs(target.x - pos.x) + Math.abs(target.y - pos.y) > 0.3 ? requestAnimationFrame(tick) : 0;
+    };
+    reposition.current = () => {
+      if (!frame) frame = requestAnimationFrame(tick);
     };
     const move = (event: PointerEvent) => {
       // The first move puts the bubble right at the pointer, no glide in.
@@ -1602,6 +1626,11 @@ function CuriousCursor({ visible }: { visible: boolean }) {
   }, []);
 
   // Type the comment out, then let story comments fade after a few seconds.
+  // The bubble grows as it types, so keep checking it still fits on screen.
+  useEffect(() => {
+    reposition.current();
+  }, [typed]);
+
   useEffect(() => {
     setTyped("");
     if (!comment) return;
