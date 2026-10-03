@@ -18,17 +18,25 @@ import screenmeshImage from "@/assets/project-screenmesh.webp";
 import voxieImage from "@/assets/project-voxie.webp";
 import { CLIMBED_OUT, RabbitHoleButton, takeFlag } from "@/components/rabbit-hole";
 import { Button } from "@/components/ui/button";
+import { jsonLd, pageMeta, person, SITE_URL } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "Nidhi — developer & curious builder" },
-      { name: "description", content: "Nidhi builds software, explores AI and Web3, explains complicated things, and follows interesting ideas down rabbit holes." },
-      { property: "og:title", content: "Nidhi — developer & curious builder" },
-      { property: "og:description", content: "A scroll-led tour through Nidhi's code, curiosities, experiments, and selected work." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+    ...pageMeta({
+      title: "Nidhi Prajapati — software engineer building AI agents & web3",
+      description:
+        "Nidhi Prajapati is a Bengaluru-based software engineer building AI agents, voice AI and privacy-first web3 tools. AI agent reliability at Emergent (YC24). Voxie, REX, Inscribe, ScreenMesh, Onkey.",
+      path: "/",
+    }),
+    scripts: [
+      jsonLd({
+        "@graph": [
+          person,
+          { "@type": "WebSite", "@id": `${SITE_URL}/#website`, url: SITE_URL, name: "Nidhi Prajapati", publisher: { "@id": `${SITE_URL}/#person` } },
+          { "@type": "ProfilePage", url: SITE_URL, name: "Nidhi Prajapati — the anatomy of a curious developer", mainEntity: { "@id": `${SITE_URL}/#person` } },
+        ],
+      }),
     ],
   }),
   component: Portfolio,

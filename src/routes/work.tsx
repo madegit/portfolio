@@ -33,13 +33,40 @@ import laptop from "@/assets/rabbit-hole/laptop.webp";
 import phone from "@/assets/rabbit-hole/phone.webp";
 import sparkles from "@/assets/rabbit-hole/sparkles.webp";
 import { ArrivalFade, ClimbBackButton } from "@/components/rabbit-hole";
+import { jsonLd, pageMeta, SITE_URL } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
-    meta: [
-      { title: "Nidhi — all work" },
-      { name: "description", content: "Everything Nidhi couldn't leave alone: AI agents, web3, privacy and the plumbing behind billing." },
+    ...pageMeta({
+      title: "Projects — Nidhi Prajapati",
+      description:
+        "All of Nidhi Prajapati's projects: AI agents (Voxie, REX, Inscribe, Point), web3 and privacy (Acre, Consensa, Ward, Onkey, x402), and billing infrastructure.",
+      path: "/work",
+    }),
+    scripts: [
+      jsonLd({
+        "@type": "CollectionPage",
+        url: `${SITE_URL}/work`,
+        name: "Projects by Nidhi Prajapati",
+        author: { "@id": `${SITE_URL}/#person` },
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: projects.map((p, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "SoftwareApplication",
+              name: p.title,
+              description: p.long,
+              applicationCategory: "DeveloperApplication",
+              ...(p.live ? { url: p.live } : {}),
+              ...(p.code ? { codeRepository: p.code } : {}),
+              author: { "@type": "Person", name: "Nidhi Prajapati", url: SITE_URL },
+            },
+          })),
+        },
+      }),
     ],
   }),
   component: WorkPage,

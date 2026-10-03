@@ -11,6 +11,7 @@ import {
 import { Analytics } from "@vercel/analytics/react";
 import { type ReactNode } from "react";
 
+import { ABOUT_SHORT, NAME, OG_IMAGE } from "../lib/seo";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -80,11 +81,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nidhi — Design Portfolio" },
-      { name: "description", content: "Nidhi's design portfolio." },
-      { name: "author", content: "Nidhi" },
+      { title: `${NAME} — software engineer` },
+      { name: "description", content: ABOUT_SHORT },
+      { name: "author", content: NAME },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: NAME },
+      { property: "og:locale", content: "en_IN" },
+      { property: "og:image", content: OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:creator", content: "@pnyk05" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [
       {
