@@ -357,8 +357,8 @@ function Portfolio() {
       </section>
 
   <Works filter={filter} setFilter={setFilter} />
-  <OhHi />
   <SkillsShowcase />
+  <OhHi />
   <CuriousCursor visible={scrollReady} />
       <PhoneComment />
     </main>
