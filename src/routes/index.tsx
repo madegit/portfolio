@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Moon, Sun } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from "react";
 
 import badminton from "@/assets/obj3d-badminton.webp";
@@ -204,6 +204,11 @@ function Portfolio() {
     };
   }, []);
   const [filter, setFilter] = useState("All");
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
+  }, [isDark]);
 
   // First the mind arrives, then its note, and only then does scrolling take over.
   useEffect(() => {
@@ -299,22 +304,33 @@ function Portfolio() {
 
   return (
     <main>
-      <header className={cn("fixed inset-x-0 top-0 z-50 grid grid-cols-[minmax(0,1fr)_auto] items-center px-5 py-5 transition-opacity duration-700 sm:px-8 sm:py-7", solidHeader ? "bg-background" : "bg-transparent", scrollReady ? "opacity-100" : "pointer-events-none animate-reveal [animation-delay:2.6s]")}>
-        <button aria-label="Back to introduction" onClick={() => go("brain")} className="w-fit bg-transparent font-serif text-3xl font-medium">
-          Matthew
-        </button>
-        <nav className="hidden items-center gap-7 text-sm font-medium md:flex" aria-label="Main navigation">
+  <header className={cn("fixed inset-x-0 top-0 z-50 grid grid-cols-[minmax(0,1fr)_auto] items-center px-5 py-5 transition-opacity duration-700 sm:px-8 sm:py-7", solidHeader ? "bg-background" : "bg-transparent", scrollReady ? "opacity-100" : "pointer-events-none animate-reveal [animation-delay:2.6s]")}>
+  <button aria-label="Back to introduction" onClick={() => go("brain")} className="w-fit bg-transparent font-serif text-3xl font-medium">
+  Matthew
+  </button>
+  <div className="flex items-center gap-5">
+  <nav className="hidden items-center gap-7 text-sm font-medium md:flex" aria-label="Main navigation">
           <button onClick={() => go("brain")} className="story-link bg-transparent">brain</button>
           <button onClick={() => go("work")} className="story-link bg-transparent">work</button>
           <a href={LINKS.linkedin} target="_blank" rel="noreferrer" className="story-link" data-cursor="the professional version.">linkedin</a>
           <button onClick={() => go("hi")} className="story-link bg-transparent" data-cursor="say hello?">let's talk</button>
-        </nav>
-        <button className="relative h-10 w-10 md:hidden" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen((open) => !open)}>
+  </nav>
+  <button
+    type="button"
+    aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+    title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+    onClick={() => setIsDark((dark) => !dark)}
+    className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-background/70 text-foreground transition-colors hover:bg-accent"
+  >
+    {isDark ? <Sun aria-hidden="true" /> : <Moon aria-hidden="true" />}
+  </button>
+  <button className="relative h-10 w-10 md:hidden" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen((open) => !open)}>
           <span className={cn("absolute left-1/2 top-1/2 h-[2px] w-7 -translate-x-1/2 rounded-full bg-foreground transition-all duration-300", menuOpen ? "rotate-45" : "-translate-y-[5px]")} />
           <span className={cn("absolute left-1/2 top-1/2 h-[2px] w-7 -translate-x-1/2 rounded-full bg-foreground transition-all duration-300", menuOpen ? "-rotate-45" : "translate-y-[4px]")} />
-        </button>
-        {menuOpen && (
-          <nav className="absolute inset-x-4 top-16 grid gap-1 border border-border bg-background p-3 text-lg shadow-xl md:hidden">
+  </button>
+  </div>
+  {menuOpen && (
+  <nav className="absolute inset-x-4 top-16 grid gap-1 border border-border bg-background p-3 text-lg shadow-xl md:hidden">
             <button onClick={() => go("brain")} className="p-3 text-left">brain</button>
             <button onClick={() => go("work")} className="p-3 text-left">work</button>
             <a href={LINKS.linkedin} target="_blank" rel="noreferrer" className="p-3">linkedin</a>
@@ -341,8 +357,8 @@ function Portfolio() {
       </section>
 
   <Works filter={filter} setFilter={setFilter} />
-  <OhHi />
   <SkillsShowcase />
+  <OhHi />
   <CuriousCursor visible={scrollReady} />
       <PhoneComment />
     </main>
@@ -1315,43 +1331,41 @@ function ScribbleArrow({ d, head, className, style }: { d: string; head: string;
   );
 }
 
-const pill = "inline-flex items-center justify-between gap-10 rounded-xl px-5 text-[1.05rem] transition-colors";
+  const pill = "inline-flex items-center justify-between gap-10 rounded-xl px-5 text-[1.05rem] transition-colors";
 
   const skillGroups = [
-    { number: "01", title: "Interface", intro: "Thoughtful surfaces that feel as good as they work.", skills: ["React", "TypeScript", "Next.js", "Tailwind CSS"] },
-    { number: "02", title: "Product", intro: "From the first idea to something people can actually use.", skills: ["Product thinking", "Design systems", "UX writing", "Prototyping"] },
-    { number: "03", title: "Curiosity", intro: "Following the interesting question until it becomes useful.", skills: ["AI products", "Web3", "Creative coding", "Technical storytelling"] },
+  { title: "Frontend", skills: ["JavaScript", "TypeScript", "React", "Next.js", "Framer Motion", "Lottie", "Spline 3D"] },
+  { title: "Styling", skills: ["Tailwind CSS", "CSS3", "Sass", "Shadcn UI"] },
+  { title: "Version Control", skills: ["Git", "GitHub"] },
+  { title: "Testing", skills: ["Jest", "React Testing Library"] },
+  { title: "UI/UX Design", skills: ["Figma", "Adobe XD", "Framer"] },
+  { title: "Backend & Databases", skills: ["Node.js", "MongoDB", "Supabase", "PostgreSQL", "GraphQL", "Strapi"] },
+  { title: "Authentication", skills: ["JWT (JSON Web Tokens)", "OAuth 2.0", "Auth0", "NextAuth", "Clerk", "Supabase Auth"] },
+  { title: "Content Management", skills: ["WordPress", "WooCommerce", "BuddyPress", "Strapi", "Sanity", "MedusaJS"] },
+  { title: "Methodologies", skills: ["Agile", "Scrum", "Kanban", "Lean"] },
+  { title: "Collaboration Tools", skills: ["Slack", "Jira", "Trello", "Notion", "Remote Collaboration Tools"] },
   ];
 
   function SkillsShowcase() {
-    return (
-      <section id="skills" aria-labelledby="skills-heading" className="border-t border-border bg-background px-5 py-20 sm:px-8 sm:py-28">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 grid gap-6 md:grid-cols-[1fr_1.5fr] md:items-end">
-            <p className="text-sm font-medium uppercase tracking-[0.24em] text-muted-foreground">what i bring</p>
-            <div>
-              <h2 id="skills-heading" className="max-w-3xl font-serif text-4xl leading-[0.98] sm:text-6xl">the tools change. the curiosity stays.</h2>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">A small snapshot of the skills I use to turn loose ideas into clear, useful experiences.</p>
-            </div>
-          </div>
-          <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3">
-            {skillGroups.map((group) => (
-              <article key={group.number} className="group bg-background p-6 transition-colors duration-300 hover:bg-muted/50 sm:p-8">
-                <div className="mb-16 flex items-center justify-between text-sm text-muted-foreground">
-                  <span>{group.number}</span>
-                  <span className="h-px w-12 bg-border transition-all duration-300 group-hover:w-20 group-hover:bg-foreground" />
-                </div>
-                <h3 className="text-2xl font-semibold">{group.title}</h3>
-                <p className="mt-3 min-h-14 text-sm leading-relaxed text-muted-foreground">{group.intro}</p>
-                <ul className="mt-8 space-y-3 border-t border-border pt-5" aria-label={`${group.title} skills`}>
-                  {group.skills.map((skill) => <li key={skill} className="flex items-center gap-3 text-sm"><span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-foreground" />{skill}</li>)}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
+  const rows = [...skillGroups, ...skillGroups];
+  return (
+  <section id="skills" aria-labelledby="skills-heading" className="overflow-hidden border-t border-border bg-background py-20 sm:py-28">
+  <div className="mx-auto max-w-7xl px-5 sm:px-8">
+  <div className="mb-12 grid gap-6 md:grid-cols-[1fr_1.5fr] md:items-end">
+  <p className="text-sm font-medium uppercase tracking-[0.24em] text-muted-foreground">key skills</p>
+  <div>
+  <h2 id="skills-heading" className="max-w-3xl font-serif text-4xl leading-[0.98] sm:text-6xl">the tools change. the curiosity stays.</h2>
+  <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">A moving snapshot of the tools and practices I use to turn loose ideas into clear, useful experiences.</p>
+  </div>
+  </div>
+  <div className="relative -mx-5 overflow-hidden border-y border-border py-5 sm:-mx-8">
+  <div className="flex w-max animate-skills-marquee gap-3 pr-3 motion-reduce:animate-none">
+  {rows.map((group, index) => <div key={`${group.title}-${index}`} className="flex items-center gap-3"><span className="rounded-full border border-border bg-muted/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">{group.title}</span>{group.skills.map((skill) => <span key={`${group.title}-${index}-${skill}`} className="rounded-full border border-border px-4 py-2 text-sm whitespace-nowrap">{skill}</span>)}<span aria-hidden="true" className="px-1 text-muted-foreground">·</span></div>)}
+  </div>
+  </div>
+  </div>
+  </section>
+  );
   }
 
   // 10 — the end. "oh, hi. i'm Matthew." — and the thread leaves the "hi." and
