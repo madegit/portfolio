@@ -340,9 +340,10 @@ function Portfolio() {
         <MobileStory ready={noteRevealed} onWork={() => go("work")} />
       </section>
 
-      <Works filter={filter} setFilter={setFilter} />
-      <OhHi />
-      <CuriousCursor visible={scrollReady} />
+  <Works filter={filter} setFilter={setFilter} />
+  <OhHi />
+  <SkillsShowcase />
+  <CuriousCursor visible={scrollReady} />
       <PhoneComment />
     </main>
   );
@@ -1316,9 +1317,46 @@ function ScribbleArrow({ d, head, className, style }: { d: string; head: string;
 
 const pill = "inline-flex items-center justify-between gap-10 rounded-xl px-5 text-[1.05rem] transition-colors";
 
-// 10 — the end. "oh, hi. i'm Matthew." — and the thread leaves the "hi." and
-// waves its way across into my raised hand. Margin notes scribbled around it.
-function OhHi() {
+  const skillGroups = [
+    { number: "01", title: "Interface", intro: "Thoughtful surfaces that feel as good as they work.", skills: ["React", "TypeScript", "Next.js", "Tailwind CSS"] },
+    { number: "02", title: "Product", intro: "From the first idea to something people can actually use.", skills: ["Product thinking", "Design systems", "UX writing", "Prototyping"] },
+    { number: "03", title: "Curiosity", intro: "Following the interesting question until it becomes useful.", skills: ["AI products", "Web3", "Creative coding", "Technical storytelling"] },
+  ];
+
+  function SkillsShowcase() {
+    return (
+      <section id="skills" aria-labelledby="skills-heading" className="border-t border-border bg-background px-5 py-20 sm:px-8 sm:py-28">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-12 grid gap-6 md:grid-cols-[1fr_1.5fr] md:items-end">
+            <p className="text-sm font-medium uppercase tracking-[0.24em] text-muted-foreground">what i bring</p>
+            <div>
+              <h2 id="skills-heading" className="max-w-3xl font-serif text-4xl leading-[0.98] sm:text-6xl">the tools change. the curiosity stays.</h2>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">A small snapshot of the skills I use to turn loose ideas into clear, useful experiences.</p>
+            </div>
+          </div>
+          <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3">
+            {skillGroups.map((group) => (
+              <article key={group.number} className="group bg-background p-6 transition-colors duration-300 hover:bg-muted/50 sm:p-8">
+                <div className="mb-16 flex items-center justify-between text-sm text-muted-foreground">
+                  <span>{group.number}</span>
+                  <span className="h-px w-12 bg-border transition-all duration-300 group-hover:w-20 group-hover:bg-foreground" />
+                </div>
+                <h3 className="text-2xl font-semibold">{group.title}</h3>
+                <p className="mt-3 min-h-14 text-sm leading-relaxed text-muted-foreground">{group.intro}</p>
+                <ul className="mt-8 space-y-3 border-t border-border pt-5" aria-label={`${group.title} skills`}>
+                  {group.skills.map((skill) => <li key={skill} className="flex items-center gap-3 text-sm"><span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-foreground" />{skill}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // 10 — the end. "oh, hi. i'm Matthew." — and the thread leaves the "hi." and
+  // waves its way across into my raised hand. Margin notes scribbled around it.
+  function OhHi() {
   const ref = useRef<HTMLElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const hiRef = useRef<HTMLSpanElement>(null);
