@@ -18,8 +18,12 @@
  * 2. Register it in @theme inline as --color-<name>: var(--<name>)
  */
 
+:root {
+  --font-sans: "Stack Sans Notch", sans-serif;
+}
+
 @theme inline {
-  --font-sans: "DM Sans", sans-serif;
+  --font-sans: "Stack Sans Notch", sans-serif;
   --font-serif: "Newsreader", serif;
   --font-hand: "Patrick Hand", cursive;
   --radius-sm: calc(var(--radius) - 4px);
