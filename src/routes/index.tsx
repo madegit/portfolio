@@ -65,7 +65,7 @@ const say = (id: string, text: string, fade = true) => {
   { number: "01", title: "Book Rion", image: voxieImage, tags: ["Publishing", "Frontend"], blurb: "an educational publishing platform for books and learning content.", live: "https://bookrion.com", code: "https://github.com/madegit" },
   { number: "02", title: "Octsend", image: rexImage, tags: ["AI", "Collaboration"], blurb: "an AI-powered collaboration platform and privacy-first email service for teams and professionals.", live: "https://octsend.com", code: "https://github.com/madegit" },
   { number: "03", title: "GoHeartMe", image: screenmeshImage, tags: ["Creator economy", "Products"], blurb: "a creator monetization platform for tips, memberships, and digital or physical shops.", live: "https://goheartme.com", code: "https://github.com/madegit" },
-  { number: "04", title: "Worksage.ai", image: acreImage, tags: ["AI", "Marketing site"], blurb: "an AI-powered context-aware work assistant and intelligence layer connecting inbox, calendar, meetings, documents, and messaging tools into a single memory.", stack: "React · Next.js Turbo Repo · Tailwind CSS · GitHub · Strapi · Strapi MCP · Node.js", live: "https://worksage.ai", code: "https://github.com/madegit" },
+  { number: "04", title: "Worksage.ai", image: acreImage, tags: ["AI", "Marketing site"], blurb: "an AI-powered work assistant for keeping context in one place.", live: "https://worksage.ai", code: "https://github.com/madegit" },
   ];
 
 // The story canvas is CANVAS_VW wide and slides CANVAS_TRAVEL_VW across the
@@ -1174,7 +1174,7 @@ function Works({ filter, setFilter }: { filter: string; setFilter: (filter: stri
           <p className="mt-8 max-w-sm text-muted-foreground">some for clients. some with teams. some because i couldn&apos;t stop thinking about them.</p>
           <p className="mb-3 mt-10 text-sm">show me</p>
           <div className="flex flex-wrap gap-2">
-            {["All", "AI", "Privacy", "Open source"].map((item) => <Button key={item} variant="filter" data-active={filter === item} onClick={() => setFilter(item)} data-cursor={`filter: ${item.toLowerCase()}`}>{item}</Button>)}
+            {["All", "Publishing", "Frontend", "AI", "Collaboration", "Creator economy", "Products", "Marketing site"].map((item) => <Button key={item} variant="filter" data-active={filter === item} onClick={() => setFilter(item)} data-cursor={`filter: ${item.toLowerCase()}`}>{item}</Button>)}
           </div>
         </aside>
         <div className="grid gap-20">
