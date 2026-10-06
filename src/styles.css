@@ -227,8 +227,10 @@
 @utility animate-draw-string { animation: draw-string 3.8s cubic-bezier(.22,.7,.2,1) both; }
   @utility animate-nudge-scroll { animation: nudge-scroll 1.7s ease-in-out infinite; }
 
-  @keyframes skills-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  @utility animate-skills-marquee { animation: skills-marquee 48s linear infinite; }
+  @keyframes skills-marquee-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+  @keyframes skills-marquee-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @utility animate-skills-marquee-right { animation: skills-marquee-right 72s linear infinite; }
+  @utility animate-skills-marquee-left { animation: skills-marquee-left 72s linear infinite; }
 
 
 @media (prefers-reduced-motion: reduce) {

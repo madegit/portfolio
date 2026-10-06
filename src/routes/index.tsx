@@ -1349,7 +1349,6 @@ function ScribbleArrow({ d, head, className, style }: { d: string; head: string;
   ];
 
   function SkillsShowcase() {
-  const rows = [...skillGroups, ...skillGroups];
   return (
   <section id="skills" aria-labelledby="skills-heading" className="overflow-hidden border-t border-border bg-background py-20 sm:py-28">
   <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -1360,10 +1359,23 @@ function ScribbleArrow({ d, head, className, style }: { d: string; head: string;
   <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">A moving snapshot of the tools and practices I use to turn loose ideas into clear, useful experiences.</p>
   </div>
   </div>
-  <div className="relative -mx-5 overflow-hidden border-y border-border py-5 sm:-mx-8">
-  <div className="flex w-max animate-skills-marquee gap-3 pr-3 motion-reduce:animate-none">
-  {rows.map((group, index) => <div key={`${group.title}-${index}`} className="flex items-center gap-3"><span className="rounded-full border border-border bg-muted/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">{group.title}</span>{group.skills.map((skill) => <span key={`${group.title}-${index}-${skill}`} className="rounded-full border border-border px-4 py-2 text-sm whitespace-nowrap">{skill}</span>)}<span aria-hidden="true" className="px-1 text-muted-foreground">·</span></div>)}
-  </div>
+  <div className="relative -mx-5 overflow-hidden border-y border-border sm:-mx-8">
+  {skillGroups.map((group, index) => {
+    const direction = index % 2 === 0 ? "animate-skills-marquee-right" : "animate-skills-marquee-left";
+    return (
+      <div key={group.title} className="overflow-hidden border-b border-border py-3 last:border-b-0 sm:py-4">
+        <div className={cn("flex w-max gap-3 pr-3 motion-reduce:animate-none", direction)}>
+          {[group, group].map((row, rowIndex) => (
+            <div key={`${row.title}-${rowIndex}`} className="flex items-center gap-3">
+              <span className="rounded-full border border-border bg-muted/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">{row.title}</span>
+              {row.skills.map((skill) => <span key={`${row.title}-${rowIndex}-${skill}`} className="whitespace-nowrap rounded-full border border-border px-4 py-2 text-sm">{skill}</span>)}
+              <span aria-hidden="true" className="px-1 text-muted-foreground">·</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  })}
   </div>
   </div>
   </section>
