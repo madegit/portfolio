@@ -39,16 +39,16 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/work")({
   head: () => ({
     ...pageMeta({
-      title: "Projects — Nidhi Prajapati",
+      title: "Works — Matthew Adeleye",
       description:
-        "All of Nidhi Prajapati's projects: AI agents (Voxie, REX, Inscribe, Point), web3 and privacy (Acre, Consensa, Ward, Onkey, x402), and billing infrastructure.",
+        "Selected work by Matthew Adeleye across products, AI, the web, and client projects.",
       path: "/work",
     }),
     scripts: [
       jsonLd({
         "@type": "CollectionPage",
         url: `${SITE_URL}/work`,
-        name: "Projects by Nidhi Prajapati",
+        name: "Works by Matthew Adeleye",
         author: { "@id": `${SITE_URL}/#person` },
         mainEntity: {
           "@type": "ItemList",
@@ -62,7 +62,7 @@ export const Route = createFileRoute("/work")({
               applicationCategory: "DeveloperApplication",
               ...(p.live ? { url: p.live } : {}),
               ...(p.code ? { codeRepository: p.code } : {}),
-              author: { "@type": "Person", name: "Nidhi Prajapati", url: SITE_URL },
+              author: { "@type": "Person", name: "Matthew Adeleye", url: SITE_URL },
             },
           })),
         },
@@ -159,12 +159,12 @@ function WorkPage() {
     <main className="dark-page relative min-h-screen select-none overflow-hidden bg-[#0b0b0d] text-white">
       <ArrivalFade />
       <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-5 py-5 sm:px-8 sm:py-7">
-        <Link to="/" className="font-serif text-3xl font-medium">Nidhi</Link>
+        <Link to="/" className="font-serif text-3xl font-medium">Matthew</Link>
         <nav className="hidden items-center gap-7 text-sm font-medium text-white/70 md:flex">
           <Link to="/" className="hover:text-white">brain</Link>
           <span className="text-white underline underline-offset-8">work</span>
-          <a href="https://www.linkedin.com/in/nidhi-prajapati-5b4483248/" target="_blank" rel="noreferrer" className="hover:text-white">linkedin</a>
-          <a href="mailto:nidhiyp05@gmail.com" className="hover:text-white">let's talk</a>
+          <a href="https://www.linkedin.com/in/mrmade" target="_blank" rel="noreferrer" className="hover:text-white">linkedin</a>
+          <a href="mailto:theadeleyematthew@gmail.com" className="hover:text-white">let's talk</a>
         </nav>
         <ClimbBackButton className="text-sm font-medium text-white/80 hover:text-white md:hidden">climb out ↑</ClimbBackButton>
       </header>
