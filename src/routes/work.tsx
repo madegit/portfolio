@@ -39,16 +39,16 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/work")({
   head: () => ({
     ...pageMeta({
-      title: "Projects — Nidhi Prajapati",
+      title: "Works — Matthew Adeleye",
       description:
-        "All of Nidhi Prajapati's projects: AI agents (Voxie, REX, Inscribe, Point), web3 and privacy (Acre, Consensa, Ward, Onkey, x402), and billing infrastructure.",
+        "Selected work by Matthew Adeleye across products, AI, the web, and client projects.",
       path: "/work",
     }),
     scripts: [
       jsonLd({
         "@type": "CollectionPage",
         url: `${SITE_URL}/work`,
-        name: "Projects by Nidhi Prajapati",
+        name: "Works by Matthew Adeleye",
         author: { "@id": `${SITE_URL}/#person` },
         mainEntity: {
           "@type": "ItemList",
@@ -62,7 +62,7 @@ export const Route = createFileRoute("/work")({
               applicationCategory: "DeveloperApplication",
               ...(p.live ? { url: p.live } : {}),
               ...(p.code ? { codeRepository: p.code } : {}),
-              author: { "@type": "Person", name: "Nidhi Prajapati", url: SITE_URL },
+              author: { "@type": "Person", name: "Matthew Adeleye", url: SITE_URL },
             },
           })),
         },
@@ -87,23 +87,13 @@ type Project = {
 // Every project gets one of the 3D objects; the ones with a live site also
 // get its screenshot in the spotlight.
 const projects: Project[] = [
-  { title: "REX", tags: ["AI agents"], object: climber, shot: rexShot, blurb: "autonomous revenue execution agent.", long: "follows up every failed payment: an email, a text, then a friendly call in your customer's own language, within rules you set.", live: "https://softknockai.vercel.app/", code: "https://github.com/SomehowLiving/rex.ai" },
-  { title: "Voxie", tags: ["AI agents", "Open source"], object: phone, shot: voxieShot, blurb: "voice AI that runs the call.", long: "voice agents that speak your caller's language: listening, turn-taking, interruptions and the voice, in 17 languages.", live: "https://voxieai.vercel.app/", code: "https://github.com/SomehowLiving/Voxie" },
-  { title: "ScreenMesh", tags: ["Open source"], object: laptop, shot: screenmeshShot, blurb: "local-first device mesh.", long: "move work between your devices without moving it through an app you don't trust. local-first, end-to-end encrypted.", live: "https://screenmesh.vercel.app/", code: "https://github.com/SomehowLiving/screenmesh" },
-  { title: "Inscribe", tags: ["AI agents", "Open source"], object: code, shot: inscribeShot, blurb: "let agents operate any website.", long: "a browser extension and an agent-native workshop built on WebMCP: it uses a site's own declared tools when it has them, and infers capabilities when it doesn't, so an agent acts on meaning instead of pixels.", live: "https://studio-bay-omega.vercel.app/", code: "https://github.com/SomehowLiving/Inscribe" },
-  { title: "Point", tags: ["AI agents"], object: cursor, blurb: "point at anything on screen, ask AI.", long: "a system-wide spatial context layer: press a shortcut, select anything visible on your screen, give an instruction, and get an answer or trigger an action — no screenshot, crop, upload, explain.", code: "https://github.com/nidhiprajapati-ops/point" },
-  { title: "Consensa", tags: ["AI agents", "Web3"], object: headphones, shot: consensaShot, blurb: "three AIs, sealed and checked on-chain.", long: "one AI can lie. three independent signals commit blind, and two must agree on-chain before anything trades.", live: "https://consensa.vercel.app/", code: "https://github.com/SomehowLiving/consensa" },
-  { title: "Acre", tags: ["Web3"], object: folder, shot: acreShot, blurb: "prove your income, reveal nothing.", long: "zero-knowledge attestations of earning capacity for gig workers. no raw financial data exposed, ever.", live: "https://acre-web-three.vercel.app/", code: "https://github.com/SomehowLiving/acre" },
-  { title: "GiftAgent", tags: ["AI agents"], object: sparkles, shot: giftagentShot, blurb: "programmable care for family.", long: "AI-powered financial care agents that look after your family members, quietly and reliably.", live: "https://trygiftagent.vercel.app/", code: "https://github.com/SomehowLiving/gift-agent" },
-  { title: "x402 builder kit", tags: ["Web3", "Open source"], object: code, shot: x402Shot, blurb: "agents that pay for APIs.", long: "from 402 to settlement: a starter kit for AI agents that pay for APIs with x402 on Algorand. no mocked payments.", live: "https://x402-kit-kappa.vercel.app", code: "https://github.com/SomehowLiving/x402-builder-kit" },
-  { title: "Onkey", tags: ["Web3", "Open source"], object: cursor, shot: onkeyShot, blurb: "self-hosted web3 auth.", long: "self-hosted web3 authentication for everyone: email login with smart contract wallets, as an SDK.", live: "https://onkey-nextjs-demo.vercel.app", code: "https://github.com/SomehowLiving/onkey", npm: "https://www.npmjs.com/package/@onkey/sdk" },
-  { title: "UsageLedger", tags: ["Open source"], object: keys, shot: usageledgerShot, blurb: "usage-based billing, reconciled.", long: "ingests raw product-usage events, prevents duplicate billing, meters usage, calculates charges and reconciles every one.", live: "https://usage-ledger.vercel.app", code: "https://github.com/SomehowLiving/usageLedger" },
-  { title: "ClinaraAI", tags: ["AI agents"], object: brain, shot: clinaraShot, blurb: "clinical decision support, explained.", long: "screens for six diseases in one session, with explainable AI, imaging workflows and generated clinical summaries, so clinicians see the why, not just the score.", live: "https://clinaraai-eight.vercel.app", code: "https://github.com/SomehowLiving/clinara-ai" },
-  { title: "Kairos", tags: ["Web3"], object: globe, blurb: "timing intelligence for polymarket.", long: "tells you when to enter a prediction market, not just what to bet on: timing signals for Polymarket.", code: "https://github.com/SomehowLiving/kairos-frontend" },
-  { title: "Ward", tags: ["Web3"], object: cat, shot: wardShot, blurb: "make risky on-chain moves survivable.", long: "runs risky on-chain interactions inside disposable, loss-capped smart-wallet pockets, so even a malicious contract can only take what's in the pocket.", live: "https://ward-steel.vercel.app", code: "https://github.com/SomehowLiving/Ward" },
-  { title: "Billing Migration Studio", tags: ["Open source"], object: books, shot: billingShot, blurb: "billing migrations at enterprise speed.", long: "validate, map and migrate billing data across Stripe, Chargebee and CSV exports, so SaaS teams can onboard customers without breaking their invoices.", live: "https://billing-migration-studio.vercel.app", code: "https://github.com/SomehowLiving/Billing-Migration-Studio" },
-  { title: "SpyCart", tags: ["AI agents"], object: camera, blurb: "secret-shop your competitors.", long: "an AI agent that buys your competitor's product for you, walks their funnel, and tells you exactly how they sell.", code: "https://github.com/SomehowLiving/spycart" },
-  { title: "Chaos-Drop", tags: ["Experiments"], object: console_, blurb: "a small experiment in chaos.", long: "a small experiment in controlled chaos.", live: "https://replit.com/@harshprajapatiy/Chaos-Drop", code: "https://github.com/SomehowLiving/Chaos-Drop" },
+  { title: "Book Rion", tags: ["Frontend"], object: books, blurb: "educational publishing platform.", long: "an educational publishing platform offering books and learning content for students.", live: "https://bookrion.com", code: "https://github.com/madegit" },
+  { title: "Octsend", tags: ["AI", "Frontend"], object: brain, blurb: "privacy-first collaboration with AI.", long: "an AI-powered collaboration platform and privacy-first email service designed for teams and professionals to work alongside AI agents.", live: "https://octsend.com", code: "https://github.com/madegit" },
+  { title: "House of Tephillah", tags: ["WordPress", "Education"], object: globe, blurb: "church and discipleship platform.", long: "a church website with online admission, course management, and staff verification powered by custom WordPress integrations.", live: "https://houseoftephillah.com", code: "https://github.com/madegit" },
+  { title: "The Market Girl", tags: ["WordPress", "E-commerce"], object: cat, blurb: "grocery and wellness e-commerce.", long: "an e-commerce platform for retail grocery and wellness products with custom UI enhancements and secure payment integration.", live: "https://the-market-girl.co.uk", code: "https://github.com/madegit" },
+  { title: "GoHeartMe", tags: ["Next.js", "Creator economy"], object: climber, blurb: "creator monetization platform.", long: "an online platform where fans support creators through one-time hearts, memberships, and digital or physical shops.", live: "https://goheartme.com", code: "https://github.com/madegit" },
+  { title: "Worksage.ai", tags: ["AI", "Frontend"], object: headphones, blurb: "context-aware work intelligence.", long: "an AI-powered work assistant connecting inboxes, calendars, meetings, documents, and messaging tools into a single memory.", live: "https://worksage.ai", code: "https://github.com/madegit" },
+  { title: "Dime", tags: ["React Native", "Web3"], object: keys, blurb: "programmable smart wallet system.", long: "a secure smart wallet system for identity, wallet control, and automation with OTP email authentication.", live: "https://dime.ng", code: "https://github.com/madegit" },
 ];
 
 const filters = ["All", "AI agents", "Web3", "Open source", "Experiments"];
@@ -159,12 +149,12 @@ function WorkPage() {
     <main className="dark-page relative min-h-screen select-none overflow-hidden bg-[#0b0b0d] text-white">
       <ArrivalFade />
       <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-5 py-5 sm:px-8 sm:py-7">
-        <Link to="/" className="font-serif text-3xl font-medium">Nidhi</Link>
+        <Link to="/" className="font-serif text-3xl font-medium">Matthew</Link>
         <nav className="hidden items-center gap-7 text-sm font-medium text-white/70 md:flex">
           <Link to="/" className="hover:text-white">brain</Link>
           <span className="text-white underline underline-offset-8">work</span>
-          <a href="https://www.linkedin.com/in/nidhi-prajapati-5b4483248/" target="_blank" rel="noreferrer" className="hover:text-white">linkedin</a>
-          <a href="mailto:nidhiyp05@gmail.com" className="hover:text-white">let's talk</a>
+          <a href="https://www.linkedin.com/in/mrmade" target="_blank" rel="noreferrer" className="hover:text-white">linkedin</a>
+          <a href="mailto:theadeleyematthew@gmail.com" className="hover:text-white">let's talk</a>
         </nav>
         <ClimbBackButton className="text-sm font-medium text-white/80 hover:text-white md:hidden">climb out ↑</ClimbBackButton>
       </header>
@@ -231,7 +221,7 @@ function WorkPage() {
 
       <footer className="relative mx-auto flex max-w-[1300px] flex-wrap items-center justify-between gap-6 border-t border-white/10 px-5 py-10 sm:px-8">
         <p className="font-serif text-3xl">
-          still more on <a href="https://github.com/SomehowLiving" target="_blank" rel="noreferrer" className="italic underline-offset-8 hover:underline">github ↗</a>
+          still more on <a href="https://github.com/madegit" target="_blank" rel="noreferrer" className="italic underline-offset-8 hover:underline">github ↗</a>
         </p>
         <ClimbBackButton className="rounded-full border border-white/60 px-6 py-3 text-white transition-colors hover:bg-white hover:text-[#0b0b0d]">climb back out ↑</ClimbBackButton>
       </footer>

@@ -1,45 +1,43 @@
 // Everything search engines and AI answer engines read about the site lives
 // here: titles, descriptions, the share image, and the structured data that
-// says who Nidhi is. None of it changes what's on screen.
+// says who Matthew is. None of it changes what's on screen.
 
 export const SITE_URL = "https://www.somehowliving.tech";
 export const OG_IMAGE = `${SITE_URL}/og.png`;
 
-export const NAME = "Nidhi Prajapati";
+export const NAME = "Matthew Adeleye";
 export const ABOUT_SHORT =
-  "Nidhi Prajapati is a software engineer building AI agents, voice AI and privacy-first web3 tools, currently working on AI agent reliability at Emergent (YC24).";
+  "Matthew Adeleye is a frontend developer with 4+ years of experience building high-performance web applications with React, Next.js, and TypeScript.";
 
 export const PROFILES = [
-  "https://www.linkedin.com/in/nidhi-prajapati-5b4483248/",
-  "https://github.com/SomehowLiving",
-  "https://x.com/pnyk05",
-  "https://devfolio.co/@nuna",
-  "https://www.npmjs.com/package/@onkey/sdk",
+  "https://www.linkedin.com/in/mrmade",
+  "https://github.com/madegit",
 ];
 
 export const person = {
   "@type": "Person",
   "@id": `${SITE_URL}/#person`,
   name: NAME,
-  alternateName: ["Nidhi", "somehowliving"],
+  alternateName: ["Matthew", "somehowliving"],
   url: SITE_URL,
   image: OG_IMAGE,
-  email: "mailto:nidhiyp05@gmail.com",
-  jobTitle: "Software Engineer",
+  email: "mailto:theadeleyematthew@gmail.com",
+  jobTitle: "Frontend Developer",
   description: ABOUT_SHORT,
-  worksFor: { "@type": "Organization", name: "Emergent", description: "Y Combinator (YC24) company" },
-  alumniOf: { "@type": "CollegeOrUniversity", name: "Sir M. Visvesvaraya Institute of Technology (SMVIT)" },
-  address: { "@type": "PostalAddress", addressLocality: "Bengaluru", addressCountry: "IN" },
+  worksFor: { "@type": "Organization", name: "GearSparks Consulting" },
+  alumniOf: { "@type": "CollegeOrUniversity", name: "Federal University of Oye-Ekiti" },
+  address: { "@type": "PostalAddress", addressLocality: "Lagos", addressCountry: "NG" },
   knowsAbout: [
-    "AI agents",
-    "Agent reliability",
-    "Voice AI",
-    "Web3",
-    "Zero-knowledge proofs",
-    "Agentic payments",
-    "WebMCP",
-    "Privacy-first software",
-    "Full-stack development",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+    "WordPress",
+    "UI/UX design",
+    "Node.js",
+    "Supabase",
+    "GraphQL",
   ],
   sameAs: PROFILES,
 };
@@ -64,7 +62,7 @@ export function pageMeta({ title, description, path }: { title: string; descript
       { property: "og:image", content: OG_IMAGE },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "the anatomy of a curious developer — Nidhi Prajapati" },
+      { property: "og:image:alt", content: "the story of a curious builder — Matthew Adeleye" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
       { name: "twitter:image", content: OG_IMAGE },
