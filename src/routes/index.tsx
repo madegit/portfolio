@@ -65,7 +65,7 @@ const say = (id: string, text: string, fade = true) => {
   { number: "01", title: "Book Rion", image: voxieImage, tags: ["Publishing", "Frontend"], blurb: "an educational publishing platform for books and learning content.", live: "https://bookrion.com", code: "https://github.com/madegit" },
   { number: "02", title: "Octsend", image: rexImage, tags: ["AI", "Collaboration"], blurb: "an AI-powered collaboration platform and privacy-first email service for teams and professionals.", live: "https://octsend.com", code: "https://github.com/madegit" },
   { number: "03", title: "GoHeartMe", image: screenmeshImage, tags: ["Creator economy", "Products"], blurb: "a creator monetization platform for tips, memberships, and digital or physical shops.", live: "https://goheartme.com", code: "https://github.com/madegit" },
-  { number: "04", title: "Worksage.ai", image: acreImage, tags: ["AI", "Marketing site"], blurb: "an AI-powered context-aware work assistant and intelligence layer connecting inbox, calendar, meetings, documents, and messaging tools into a single memory.", stack: "React · Next.js Turbo Repo · Tailwind CSS · GitHub · Strapi · Strapi MCP · Node.js", live: "https://worksage.ai", code: "https://github.com/madegit" },
+  { number: "04", title: "Worksage.ai", image: acreImage, tags: ["AI", "Marketing site"], blurb: "an AI-powered work assistant for keeping context in one place.", live: "https://worksage.ai", code: "https://github.com/madegit" },
   ];
 
 // The story canvas is CANVAS_VW wide and slides CANVAS_TRAVEL_VW across the
@@ -307,8 +307,9 @@ function Portfolio() {
   return (
     <main>
   <header className={cn("fixed inset-x-0 top-0 z-50 grid grid-cols-[minmax(0,1fr)_auto] items-center px-5 py-5 transition-opacity duration-700 sm:px-8 sm:py-7", solidHeader ? "bg-background" : "bg-transparent", scrollReady ? "opacity-100" : "pointer-events-none animate-reveal [animation-delay:2.6s]")}>
-  <button aria-label="Back to introduction" onClick={() => go("brain")} className="w-fit bg-transparent font-serif text-3xl font-medium">
-  Matthew
+  <button aria-label="Back to introduction" onClick={() => go("brain")} className="w-fit bg-transparent">
+    <img src="/mrmade-light.svg" alt="Matthew Adeleye" className="block h-auto w-[7.5rem] dark:hidden" />
+    <img src="/mrmade-dark.svg" alt="Matthew Adeleye" className="hidden h-auto w-[7.5rem] dark:block" />
   </button>
   <div className="flex items-center gap-5">
   <nav className="hidden items-center gap-7 text-sm font-medium md:flex" aria-label="Main navigation">
@@ -1174,7 +1175,7 @@ function Works({ filter, setFilter }: { filter: string; setFilter: (filter: stri
           <p className="mt-8 max-w-sm text-muted-foreground">some for clients. some with teams. some because i couldn&apos;t stop thinking about them.</p>
           <p className="mb-3 mt-10 text-sm">show me</p>
           <div className="flex flex-wrap gap-2">
-            {["All", "AI", "Privacy", "Open source"].map((item) => <Button key={item} variant="filter" data-active={filter === item} onClick={() => setFilter(item)} data-cursor={`filter: ${item.toLowerCase()}`}>{item}</Button>)}
+            {["All", "Publishing", "Frontend", "AI", "Collaboration", "Creator economy", "Products", "Marketing site"].map((item) => <Button key={item} variant="filter" data-active={filter === item} onClick={() => setFilter(item)} data-cursor={`filter: ${item.toLowerCase()}`}>{item}</Button>)}
           </div>
         </aside>
         <div className="grid gap-20">
@@ -1349,7 +1350,6 @@ function ScribbleArrow({ d, head, className, style }: { d: string; head: string;
   ];
 
   function SkillsShowcase() {
-  const rows = [...skillGroups, ...skillGroups];
   return (
   <section id="skills" aria-labelledby="skills-heading" className="overflow-hidden border-t border-border bg-background py-20 sm:py-28">
   <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -1360,10 +1360,23 @@ function ScribbleArrow({ d, head, className, style }: { d: string; head: string;
   <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">A moving snapshot of the tools and practices I use to turn loose ideas into clear, useful experiences.</p>
   </div>
   </div>
-  <div className="relative -mx-5 overflow-hidden border-y border-border py-5 sm:-mx-8">
-  <div className="flex w-max animate-skills-marquee gap-3 pr-3 motion-reduce:animate-none">
-  {rows.map((group, index) => <div key={`${group.title}-${index}`} className="flex items-center gap-3"><span className="rounded-full border border-border bg-muted/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">{group.title}</span>{group.skills.map((skill) => <span key={`${group.title}-${index}-${skill}`} className="rounded-full border border-border px-4 py-2 text-sm whitespace-nowrap">{skill}</span>)}<span aria-hidden="true" className="px-1 text-muted-foreground">·</span></div>)}
-  </div>
+  <div className="relative -mx-5 overflow-hidden border-y border-border sm:-mx-8">
+  {skillGroups.map((group, index) => {
+    const direction = index % 2 === 0 ? "animate-skills-marquee-right" : "animate-skills-marquee-left";
+    return (
+      <div key={group.title} className="overflow-hidden border-b border-border py-3 last:border-b-0 sm:py-4">
+        <div className={cn("flex w-max gap-3 pr-3 motion-reduce:animate-none", direction)}>
+          {[group, group].map((row, rowIndex) => (
+            <div key={`${row.title}-${rowIndex}`} className="flex items-center gap-3">
+              <span className="rounded-full border border-border bg-muted/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">{row.title}</span>
+              {row.skills.map((skill) => <span key={`${row.title}-${rowIndex}-${skill}`} className="whitespace-nowrap rounded-full border border-border px-4 py-2 text-sm">{skill}</span>)}
+              <span aria-hidden="true" className="px-1 text-muted-foreground">·</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  })}
   </div>
   </div>
   </section>
