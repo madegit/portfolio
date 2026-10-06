@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Moon, Sun } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from "react";
 
 import badminton from "@/assets/obj3d-badminton.webp";
@@ -204,6 +204,11 @@ function Portfolio() {
     };
   }, []);
   const [filter, setFilter] = useState("All");
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
+  }, [isDark]);
 
   // First the mind arrives, then its note, and only then does scrolling take over.
   useEffect(() => {
@@ -299,22 +304,33 @@ function Portfolio() {
 
   return (
     <main>
-      <header className={cn("fixed inset-x-0 top-0 z-50 grid grid-cols-[minmax(0,1fr)_auto] items-center px-5 py-5 transition-opacity duration-700 sm:px-8 sm:py-7", solidHeader ? "bg-background" : "bg-transparent", scrollReady ? "opacity-100" : "pointer-events-none animate-reveal [animation-delay:2.6s]")}>
-        <button aria-label="Back to introduction" onClick={() => go("brain")} className="w-fit bg-transparent font-serif text-3xl font-medium">
-          Matthew
-        </button>
-        <nav className="hidden items-center gap-7 text-sm font-medium md:flex" aria-label="Main navigation">
+  <header className={cn("fixed inset-x-0 top-0 z-50 grid grid-cols-[minmax(0,1fr)_auto] items-center px-5 py-5 transition-opacity duration-700 sm:px-8 sm:py-7", solidHeader ? "bg-background" : "bg-transparent", scrollReady ? "opacity-100" : "pointer-events-none animate-reveal [animation-delay:2.6s]")}>
+  <button aria-label="Back to introduction" onClick={() => go("brain")} className="w-fit bg-transparent font-serif text-3xl font-medium">
+  Matthew
+  </button>
+  <div className="flex items-center gap-5">
+  <nav className="hidden items-center gap-7 text-sm font-medium md:flex" aria-label="Main navigation">
           <button onClick={() => go("brain")} className="story-link bg-transparent">brain</button>
           <button onClick={() => go("work")} className="story-link bg-transparent">work</button>
           <a href={LINKS.linkedin} target="_blank" rel="noreferrer" className="story-link" data-cursor="the professional version.">linkedin</a>
           <button onClick={() => go("hi")} className="story-link bg-transparent" data-cursor="say hello?">let's talk</button>
-        </nav>
-        <button className="relative h-10 w-10 md:hidden" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen((open) => !open)}>
+  </nav>
+  <button
+    type="button"
+    aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+    title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+    onClick={() => setIsDark((dark) => !dark)}
+    className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-background/70 text-foreground transition-colors hover:bg-accent"
+  >
+    {isDark ? <Sun aria-hidden="true" /> : <Moon aria-hidden="true" />}
+  </button>
+  <button className="relative h-10 w-10 md:hidden" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen((open) => !open)}>
           <span className={cn("absolute left-1/2 top-1/2 h-[2px] w-7 -translate-x-1/2 rounded-full bg-foreground transition-all duration-300", menuOpen ? "rotate-45" : "-translate-y-[5px]")} />
           <span className={cn("absolute left-1/2 top-1/2 h-[2px] w-7 -translate-x-1/2 rounded-full bg-foreground transition-all duration-300", menuOpen ? "-rotate-45" : "translate-y-[4px]")} />
-        </button>
-        {menuOpen && (
-          <nav className="absolute inset-x-4 top-16 grid gap-1 border border-border bg-background p-3 text-lg shadow-xl md:hidden">
+  </button>
+  </div>
+  {menuOpen && (
+  <nav className="absolute inset-x-4 top-16 grid gap-1 border border-border bg-background p-3 text-lg shadow-xl md:hidden">
             <button onClick={() => go("brain")} className="p-3 text-left">brain</button>
             <button onClick={() => go("work")} className="p-3 text-left">work</button>
             <a href={LINKS.linkedin} target="_blank" rel="noreferrer" className="p-3">linkedin</a>
