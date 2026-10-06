@@ -1331,43 +1331,41 @@ function ScribbleArrow({ d, head, className, style }: { d: string; head: string;
   );
 }
 
-const pill = "inline-flex items-center justify-between gap-10 rounded-xl px-5 text-[1.05rem] transition-colors";
+  const pill = "inline-flex items-center justify-between gap-10 rounded-xl px-5 text-[1.05rem] transition-colors";
 
   const skillGroups = [
-    { number: "01", title: "Interface", intro: "Thoughtful surfaces that feel as good as they work.", skills: ["React", "TypeScript", "Next.js", "Tailwind CSS"] },
-    { number: "02", title: "Product", intro: "From the first idea to something people can actually use.", skills: ["Product thinking", "Design systems", "UX writing", "Prototyping"] },
-    { number: "03", title: "Curiosity", intro: "Following the interesting question until it becomes useful.", skills: ["AI products", "Web3", "Creative coding", "Technical storytelling"] },
+  { title: "Frontend", skills: ["JavaScript", "TypeScript", "React", "Next.js", "Framer Motion", "Lottie", "Spline 3D"] },
+  { title: "Styling", skills: ["Tailwind CSS", "CSS3", "Sass", "Shadcn UI"] },
+  { title: "Version Control", skills: ["Git", "GitHub"] },
+  { title: "Testing", skills: ["Jest", "React Testing Library"] },
+  { title: "UI/UX Design", skills: ["Figma", "Adobe XD", "Framer"] },
+  { title: "Backend & Databases", skills: ["Node.js", "MongoDB", "Supabase", "PostgreSQL", "GraphQL", "Strapi"] },
+  { title: "Authentication", skills: ["JWT (JSON Web Tokens)", "OAuth 2.0", "Auth0", "NextAuth", "Clerk", "Supabase Auth"] },
+  { title: "Content Management", skills: ["WordPress", "WooCommerce", "BuddyPress", "Strapi", "Sanity", "MedusaJS"] },
+  { title: "Methodologies", skills: ["Agile", "Scrum", "Kanban", "Lean"] },
+  { title: "Collaboration Tools", skills: ["Slack", "Jira", "Trello", "Notion", "Remote Collaboration Tools"] },
   ];
 
   function SkillsShowcase() {
-    return (
-      <section id="skills" aria-labelledby="skills-heading" className="border-t border-border bg-background px-5 py-20 sm:px-8 sm:py-28">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 grid gap-6 md:grid-cols-[1fr_1.5fr] md:items-end">
-            <p className="text-sm font-medium uppercase tracking-[0.24em] text-muted-foreground">what i bring</p>
-            <div>
-              <h2 id="skills-heading" className="max-w-3xl font-serif text-4xl leading-[0.98] sm:text-6xl">the tools change. the curiosity stays.</h2>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">A small snapshot of the skills I use to turn loose ideas into clear, useful experiences.</p>
-            </div>
-          </div>
-          <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3">
-            {skillGroups.map((group) => (
-              <article key={group.number} className="group bg-background p-6 transition-colors duration-300 hover:bg-muted/50 sm:p-8">
-                <div className="mb-16 flex items-center justify-between text-sm text-muted-foreground">
-                  <span>{group.number}</span>
-                  <span className="h-px w-12 bg-border transition-all duration-300 group-hover:w-20 group-hover:bg-foreground" />
-                </div>
-                <h3 className="text-2xl font-semibold">{group.title}</h3>
-                <p className="mt-3 min-h-14 text-sm leading-relaxed text-muted-foreground">{group.intro}</p>
-                <ul className="mt-8 space-y-3 border-t border-border pt-5" aria-label={`${group.title} skills`}>
-                  {group.skills.map((skill) => <li key={skill} className="flex items-center gap-3 text-sm"><span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-foreground" />{skill}</li>)}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
+  const rows = [...skillGroups, ...skillGroups];
+  return (
+  <section id="skills" aria-labelledby="skills-heading" className="overflow-hidden border-t border-border bg-background py-20 sm:py-28">
+  <div className="mx-auto max-w-7xl px-5 sm:px-8">
+  <div className="mb-12 grid gap-6 md:grid-cols-[1fr_1.5fr] md:items-end">
+  <p className="text-sm font-medium uppercase tracking-[0.24em] text-muted-foreground">key skills</p>
+  <div>
+  <h2 id="skills-heading" className="max-w-3xl font-serif text-4xl leading-[0.98] sm:text-6xl">the tools change. the curiosity stays.</h2>
+  <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">A moving snapshot of the tools and practices I use to turn loose ideas into clear, useful experiences.</p>
+  </div>
+  </div>
+  <div className="relative -mx-5 overflow-hidden border-y border-border py-5 sm:-mx-8">
+  <div className="flex w-max animate-skills-marquee gap-3 pr-3 motion-reduce:animate-none">
+  {rows.map((group, index) => <div key={`${group.title}-${index}`} className="flex items-center gap-3"><span className="rounded-full border border-border bg-muted/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">{group.title}</span>{group.skills.map((skill) => <span key={`${group.title}-${index}-${skill}`} className="rounded-full border border-border px-4 py-2 text-sm whitespace-nowrap">{skill}</span>)}<span aria-hidden="true" className="px-1 text-muted-foreground">·</span></div>)}
+  </div>
+  </div>
+  </div>
+  </section>
+  );
   }
 
   // 10 — the end. "oh, hi. i'm Matthew." — and the thread leaves the "hi." and
