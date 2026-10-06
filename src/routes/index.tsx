@@ -13,6 +13,7 @@ import headphones from "@/assets/obj3d-headphones.webp";
 import keys from "@/assets/obj3d-keys.webp";
 import me from "@/assets/me.webp";
 import laptop from "@/assets/obj3d-laptop.webp";
+import acreImage from "@/assets/project-acre.webp";
 import rexImage from "@/assets/project-rex.webp";
 import screenmeshImage from "@/assets/project-screenmesh.webp";
 import voxieImage from "@/assets/project-voxie.webp";
@@ -64,6 +65,7 @@ const say = (id: string, text: string, fade = true) => {
   { number: "01", title: "Book Rion", image: voxieImage, tags: ["Publishing", "Frontend"], blurb: "an educational publishing platform for books and learning content.", live: "https://bookrion.com", code: "https://github.com/madegit" },
   { number: "02", title: "Octsend", image: rexImage, tags: ["AI", "Collaboration"], blurb: "an AI-powered collaboration platform and privacy-first email service for teams and professionals.", live: "https://octsend.com", code: "https://github.com/madegit" },
   { number: "03", title: "GoHeartMe", image: screenmeshImage, tags: ["Creator economy", "Products"], blurb: "a creator monetization platform for tips, memberships, and digital or physical shops.", live: "https://goheartme.com", code: "https://github.com/madegit" },
+  { number: "04", title: "Worksage.ai", image: acreImage, tags: ["AI", "Marketing site"], blurb: "an AI-powered context-aware work assistant and intelligence layer connecting inbox, calendar, meetings, documents, and messaging tools into a single memory.", stack: "React · Next.js Turbo Repo · Tailwind CSS · GitHub · Strapi · Strapi MCP · Node.js", live: "https://worksage.ai", code: "https://github.com/madegit" },
   ];
 
 // The story canvas is CANVAS_VW wide and slides CANVAS_TRAVEL_VW across the
@@ -1182,7 +1184,7 @@ function Works({ filter, setFilter }: { filter: string; setFilter: (filter: stri
                 <img src={project.image} alt={`${project.title} website`} loading="lazy" width={1200} height={912} className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]" />
               </a>
               <div className="mt-5 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-5">
-                <div className="min-w-0"><p className="text-xs text-muted-foreground">{project.number} / {project.tags.join(" · ")}</p><h3 className="mt-1 font-serif text-4xl">{project.title}</h3><p className="mt-2 max-w-xl text-muted-foreground">{project.blurb}</p></div>
+                <div className="min-w-0"><p className="text-xs text-muted-foreground">{project.number} / {project.tags.join(" · ")}</p><h3 className="mt-1 font-serif text-4xl">{project.title}</h3><p className="mt-2 max-w-xl text-muted-foreground">{project.blurb}</p>{project.stack && <p className="mt-4 max-w-xl text-xs uppercase tracking-[0.12em] text-muted-foreground">Stack: {project.stack}</p>}</div>
                 <Button asChild variant="paper" size="icon"><a href={project.code} target="_blank" rel="noreferrer" aria-label={`${project.title} on GitHub`} data-cursor="read the code ↗"><ArrowUpRight className="h-5 w-5" /></a></Button>
               </div>
             </article>
