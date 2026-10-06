@@ -60,11 +60,11 @@ const say = (id: string, text: string, fade = true) => {
 };
 
 // The image opens the live site; the arrow opens the code.
-const projects = [
-  { number: "01", title: "Voxie", image: voxieImage, tags: ["AI", "Open source"], blurb: "voice agents that speak your caller's language: 17 languages, real barge-in, open source.", live: "https://voxieai.vercel.app/", code: "https://github.com/SomehowLiving/Voxie" },
-  { number: "02", title: "REX by Softknock", image: rexImage, tags: ["AI", "Products"], blurb: "follows up every failed payment, by email, text and a friendly call, in your customer's own language.", live: "https://softknockai.vercel.app/", code: "https://github.com/SomehowLiving/rex.ai" },
-  { number: "03", title: "ScreenMesh", image: screenmeshImage, tags: ["Privacy", "Open source"], blurb: "move work between your devices without moving it through an app you don't trust. local-first, end-to-end encrypted.", live: "https://screenmesh.vercel.app/", code: "https://github.com/SomehowLiving/screenmesh" },
-];
+  const projects = [
+  { number: "01", title: "Book Rion", image: voxieImage, tags: ["Publishing", "Frontend"], blurb: "an educational publishing platform for books and learning content.", live: "https://bookrion.com", code: "https://github.com/madegit" },
+  { number: "02", title: "Octsend", image: rexImage, tags: ["AI", "Collaboration"], blurb: "an AI-powered collaboration platform and privacy-first email service for teams and professionals.", live: "https://octsend.com", code: "https://github.com/madegit" },
+  { number: "03", title: "GoHeartMe", image: screenmeshImage, tags: ["Creator economy", "Products"], blurb: "a creator monetization platform for tips, memberships, and digital or physical shops.", live: "https://goheartme.com", code: "https://github.com/madegit" },
+  ];
 
 // The story canvas is CANVAS_VW wide and slides CANVAS_TRAVEL_VW across the
 // scroll. Everything on it is placed in vw/vh, and the SVG uses a viewBox of
@@ -589,14 +589,14 @@ function HeartScene() {
 
 // One beat per year, told like a story: a short line that moves it forward,
 // and the detail underneath for anyone who wants it.
-const timeline = [
-  { year: "2021", title: "started a company at 17.", line: "Alphonse Esports — tournaments, teams, and a lot of learning on the job, mid-COVID." },
-  { year: "2022", title: "went back to school.", line: "computer science at SMVIT. kept building things on the side." },
-  { year: "2023", title: "found web3.", line: "the tech was weird. naturally, i stayed." },
-  { year: "2024", title: "started shipping.", line: "smart contracts, hackathons, open-source experiments." },
-  { year: "2025", title: "brought people along.", line: "workshops, mentoring, and a few ambassador badges." },
-  { year: "2026", title: "then, AI happened.", line: "now keeping AI agents reliable in production." },
-];
+  const timeline = [
+  { year: "2020", title: "started designing.", line: "UI/UX design and frontend development at Hypeberg." },
+  { year: "2022", title: "kept building.", line: "joined Nairable and began shipping responsive React and Next.js applications." },
+  { year: "2023", title: "led frontend work.", line: "provided architecture, code reviews, and high-performance interfaces at Raum Inc." },
+  { year: "2024", title: "built for learning.", line: "developed WordPress plugins and admin workflows for Tephillah School of Discipleship." },
+  { year: "2025", title: "joined Book Rion.", line: "helped build an accessible educational publishing platform with React and Tailwind CSS." },
+  { year: "2026", title: "leading at GearSparks.", line: "building user-centric React and Next.js applications with a focus on performance and accessibility." },
+  ];
 const TIMELINE_FROM = 304;
 const TIMELINE_STEP = 18;
 const STEM = 11;

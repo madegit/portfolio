@@ -7,7 +7,7 @@ export const OG_IMAGE = `${SITE_URL}/og.png`;
 
 export const NAME = "Matthew Adeleye";
 export const ABOUT_SHORT =
-  "Matthew Adeleye is a frontend developer and product builder designing, building, and shipping useful things for the web.";
+  "Matthew Adeleye is a frontend developer with 4+ years of experience building high-performance web applications with React, Next.js, and TypeScript.";
 
 export const PROFILES = [
   "https://www.linkedin.com/in/mrmade",
@@ -22,21 +22,22 @@ export const person = {
   url: SITE_URL,
   image: OG_IMAGE,
   email: "mailto:theadeleyematthew@gmail.com",
-  jobTitle: "Software Engineer",
+  jobTitle: "Frontend Developer",
   description: ABOUT_SHORT,
-  worksFor: { "@type": "Organization", name: "Emergent", description: "Y Combinator (YC24) company" },
-  alumniOf: { "@type": "CollegeOrUniversity", name: "Sir M. Visvesvaraya Institute of Technology (SMVIT)" },
-  address: { "@type": "PostalAddress", addressLocality: "Bengaluru", addressCountry: "IN" },
+  worksFor: { "@type": "Organization", name: "GearSparks Consulting" },
+  alumniOf: { "@type": "CollegeOrUniversity", name: "Federal University of Oye-Ekiti" },
+  address: { "@type": "PostalAddress", addressLocality: "Lagos", addressCountry: "NG" },
   knowsAbout: [
-    "AI agents",
-    "Agent reliability",
-    "Voice AI",
-    "Web3",
-    "Zero-knowledge proofs",
-    "Agentic payments",
-    "WebMCP",
-    "Privacy-first software",
-    "Full-stack development",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+    "WordPress",
+    "UI/UX design",
+    "Node.js",
+    "Supabase",
+    "GraphQL",
   ],
   sameAs: PROFILES,
 };
