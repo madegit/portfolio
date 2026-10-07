@@ -308,8 +308,8 @@ function Portfolio() {
     <main>
   <header className={cn("fixed inset-x-0 top-0 z-50 grid grid-cols-[minmax(0,1fr)_auto] items-center px-5 py-5 transition-opacity duration-700 sm:px-8 sm:py-7", solidHeader ? "bg-background" : "bg-transparent", scrollReady ? "opacity-100" : "pointer-events-none animate-reveal [animation-delay:2.6s]")}>
   <button aria-label="Back to introduction" onClick={() => go("brain")} className="w-fit bg-transparent">
-    <img src="/mrmade-light.svg" alt="Matthew Adeleye" className="block h-auto w-[7.5rem] dark:hidden" />
-    <img src="/mrmade-dark.svg" alt="Matthew Adeleye" className="hidden h-auto w-[7.5rem] dark:block" />
+<img src="/mrmade-dark.svg" alt="Matthew Adeleye" className="block h-auto w-[7.5rem] dark:hidden" />
+            <img src="/mrmade-light.svg" alt="Matthew Adeleye" className="hidden h-auto w-[7.5rem] dark:block" />
   </button>
   <div className="flex items-center gap-5">
   <nav className="hidden items-center gap-7 text-sm font-medium md:flex" aria-label="Main navigation">
