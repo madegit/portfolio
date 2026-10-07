@@ -1361,6 +1361,14 @@ function ScribbleArrow({ d, head, className, style }: { d: string; head: string;
   </div>
   </div>
   <div className="relative -mx-5 overflow-hidden border-y border-border sm:-mx-8">
+  <div className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-44 border-l border-border bg-background/95 backdrop-blur-sm md:block lg:w-52">
+    <div className="flex h-full flex-col justify-center gap-3 px-5 lg:px-7">
+      {skillGroups.map((group) => (
+        <span key={group.title} className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">{group.title}</span>
+      ))}
+    </div>
+  </div>
+  <div className="md:pr-44 lg:pr-52">
   {skillGroups.map((group, index) => {
     const direction = index % 2 === 0 ? "animate-skills-marquee-right" : "animate-skills-marquee-left";
     return (
@@ -1368,7 +1376,6 @@ function ScribbleArrow({ d, head, className, style }: { d: string; head: string;
         <div className={cn("flex w-max gap-3 pr-3 motion-reduce:animate-none", direction)}>
           {[group, group].map((row, rowIndex) => (
             <div key={`${row.title}-${rowIndex}`} className="flex items-center gap-3">
-              <span className="rounded-full border border-border bg-muted/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">{row.title}</span>
               {row.skills.map((skill) => <span key={`${row.title}-${rowIndex}-${skill}`} className="whitespace-nowrap rounded-full border border-border px-4 py-2 text-sm">{skill}</span>)}
               <span aria-hidden="true" className="px-1 text-muted-foreground">·</span>
             </div>
@@ -1377,6 +1384,7 @@ function ScribbleArrow({ d, head, className, style }: { d: string; head: string;
       </div>
     );
   })}
+  </div>
   </div>
   </div>
   </section>
