@@ -19,11 +19,11 @@
  */
 
 :root {
-  --font-sans: "Stack Sans Notch", sans-serif;
+  --font-sans: "Inter Tight", sans-serif;
 }
 
 @theme inline {
-  --font-sans: "Stack Sans Notch", sans-serif;
+  --font-sans: "Inter Tight", sans-serif;
   --font-serif: "Gloock", serif;
   --font-hand: "Patrick Hand", cursive;
   --radius-sm: calc(var(--radius) - 4px);
