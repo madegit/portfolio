@@ -361,7 +361,6 @@ function Portfolio() {
 
   <Works filter={filter} setFilter={setFilter} />
   <OhHi />
-  <SkillsShowcase />
   <CuriousCursor visible={scrollReady} />
       <PhoneComment />
     </main>
@@ -1336,60 +1335,6 @@ function ScribbleArrow({ d, head, className, style }: { d: string; head: string;
 
   const pill = "inline-flex items-center justify-between gap-10 rounded-xl px-5 text-[1.05rem] transition-colors";
 
-  const skillGroups = [
-  { title: "Frontend", skills: ["JavaScript", "TypeScript", "React", "Next.js", "Framer Motion", "Lottie", "Spline 3D"] },
-  { title: "Styling", skills: ["Tailwind CSS", "CSS3", "Sass", "Shadcn UI"] },
-  { title: "Version Control", skills: ["Git", "GitHub"] },
-  { title: "Testing", skills: ["Jest", "React Testing Library"] },
-  { title: "UI/UX Design", skills: ["Figma", "Adobe XD", "Framer"] },
-  { title: "Backend & Databases", skills: ["Node.js", "MongoDB", "Supabase", "PostgreSQL", "GraphQL", "Strapi"] },
-  { title: "Authentication", skills: ["JWT (JSON Web Tokens)", "OAuth 2.0", "Auth0", "NextAuth", "Clerk", "Supabase Auth"] },
-  { title: "Content Management", skills: ["WordPress", "WooCommerce", "BuddyPress", "Strapi", "Sanity", "MedusaJS"] },
-  { title: "Methodologies", skills: ["Agile", "Scrum", "Kanban", "Lean"] },
-  { title: "Collaboration Tools", skills: ["Slack", "Jira", "Trello", "Notion", "Remote Collaboration Tools"] },
-  ];
-
-  function SkillsShowcase() {
-  return (
-  <section id="skills" aria-labelledby="skills-heading" className="overflow-hidden border-t border-border bg-background py-20 sm:py-28">
-  <div className="mx-auto max-w-7xl px-5 sm:px-8">
-  <div className="mb-12 grid gap-6 md:grid-cols-[1fr_1.5fr] md:items-end">
-  <p className="text-sm font-medium uppercase tracking-[0.24em] text-muted-foreground">key skills</p>
-  <div>
-  <h2 id="skills-heading" className="max-w-3xl font-serif text-4xl leading-[0.98] sm:text-6xl">the tools change. the curiosity stays.</h2>
-  <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">A moving snapshot of the tools and practices I use to turn loose ideas into clear, useful experiences.</p>
-  </div>
-  </div>
-  <div className="relative -mx-5 overflow-hidden border-y border-border sm:-mx-8">
-  <div className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-44 border-l border-border bg-background/95 backdrop-blur-sm md:block lg:w-52">
-    <div className="flex h-full flex-col justify-center gap-3 px-5 lg:px-7">
-      {skillGroups.map((group) => (
-        <span key={group.title} className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">{group.title}</span>
-      ))}
-    </div>
-  </div>
-  <div className="md:pr-44 lg:pr-52">
-  {skillGroups.map((group, index) => {
-    const direction = index % 2 === 0 ? "animate-skills-marquee-right" : "animate-skills-marquee-left";
-    return (
-      <div key={group.title} className="overflow-hidden border-b border-border py-3 last:border-b-0 sm:py-4">
-        <div className={cn("flex w-max gap-3 pr-3 motion-reduce:animate-none", direction)}>
-          {[group, group].map((row, rowIndex) => (
-            <div key={`${row.title}-${rowIndex}`} className="flex items-center gap-3">
-              {row.skills.map((skill) => <span key={`${row.title}-${rowIndex}-${skill}`} className="whitespace-nowrap rounded-full border border-border px-4 py-2 text-sm">{skill}</span>)}
-              <span aria-hidden="true" className="px-1 text-muted-foreground">·</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  })}
-  </div>
-  </div>
-  </div>
-  </section>
-  );
-  }
 
   // 10 — the end. "oh, hi. i'm Matthew." — and the thread leaves the "hi." and
   // waves its way across into my raised hand. Margin notes scribbled around it.
