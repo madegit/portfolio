@@ -3,7 +3,7 @@
 // says who Matthew is. None of it changes what's on screen.
 
 export const SITE_URL = "https://www.somehowliving.tech";
-export const OG_IMAGE = `${SITE_URL}/og.png`;
+export const OG_IMAGE = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0725-K4NOc541a6nbcWq3imIbmWL0lnkhP4.png";
 
 export const NAME = "Matthew Adeleye";
 export const ABOUT_SHORT =
