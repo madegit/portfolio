@@ -13,10 +13,7 @@ import headphones from "@/assets/obj3d-headphones.webp";
 import keys from "@/assets/obj3d-keys.webp";
 import me from "@/assets/me.webp";
 import laptop from "@/assets/obj3d-laptop.webp";
-import acreImage from "@/assets/project-acre.webp";
-import rexImage from "@/assets/project-rex.webp";
-import screenmeshImage from "@/assets/project-screenmesh.webp";
-import voxieImage from "@/assets/project-voxie.webp";
+
 import { CLIMBED_OUT, RabbitHoleButton, takeFlag } from "@/components/rabbit-hole";
 import { Button } from "@/components/ui/button";
 import { jsonLd, pageMeta, person, SITE_URL } from "@/lib/seo";
@@ -62,10 +59,10 @@ const say = (id: string, text: string, fade = true) => {
 
 // The image opens the live site; the arrow opens the code.
   const projects = [
-  { number: "01", title: "Book Rion", image: voxieImage, tags: ["Publishing", "Frontend"], blurb: "an educational publishing platform for books and learning content.", live: "https://bookrion.com", code: "https://github.com/madegit" },
-  { number: "02", title: "Octsend", image: rexImage, tags: ["AI", "Collaboration"], blurb: "an AI-powered collaboration platform and privacy-first email service for teams and professionals.", live: "https://octsend.com", code: "https://github.com/madegit" },
-  { number: "03", title: "GoHeartMe", image: screenmeshImage, tags: ["Creator economy", "Products"], blurb: "a creator monetization platform for tips, memberships, and digital or physical shops.", live: "https://goheartme.com", code: "https://github.com/madegit" },
-  { number: "04", title: "Worksage.ai", image: acreImage, tags: ["AI", "Marketing site"], blurb: "an AI-powered work assistant for keeping context in one place.", live: "https://worksage.ai", code: "https://github.com/madegit" },
+  { number: "01", title: "Book Rion", image: "/project-covers/bookrion.png", tags: ["Publishing", "Frontend"], blurb: "an educational publishing platform for books and learning content.", live: "https://bookrion.com", code: "https://github.com/madegit" },
+  { number: "02", title: "Octsend", image: "/project-covers/octsend.png", tags: ["AI", "Collaboration"], blurb: "an AI-powered collaboration platform and privacy-first email service for teams and professionals.", live: "https://octsend.com", code: "https://github.com/madegit" },
+  { number: "03", title: "GoHeartMe", image: "/project-covers/goheartme.png", tags: ["Creator economy", "Products"], blurb: "a creator monetization platform for tips, memberships, and digital or physical shops.", live: "https://goheartme.com", code: "https://github.com/madegit" },
+  { number: "04", title: "Worksage.ai", image: "/project-covers/worksage.png", tags: ["AI", "Marketing site"], blurb: "an AI-powered work assistant for keeping context in one place.", live: "https://worksage.ai", code: "https://github.com/madegit" },
   ];
 
 // The story canvas is CANVAS_VW wide and slides CANVAS_TRAVEL_VW across the
