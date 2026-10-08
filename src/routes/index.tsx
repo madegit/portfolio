@@ -360,8 +360,8 @@ function Portfolio() {
       </section>
 
   <Works filter={filter} setFilter={setFilter} />
-  <SkillsShowcase />
   <OhHi />
+  <SkillsShowcase />
   <CuriousCursor visible={scrollReady} />
       <PhoneComment />
     </main>
