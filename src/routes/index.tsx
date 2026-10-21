@@ -6,7 +6,7 @@ import badminton from "@/assets/obj3d-badminton.webp";
 import astronaut from "@/assets/obj3d-astronaut.webp";
 import brain from "@/assets/obj3d-brain.webp";
 import camera from "@/assets/obj3d-camera.webp";
-import cat from "@/assets/obj3d-cat.webp";
+
 import globe from "@/assets/obj3d-globe.webp";
 import headphones from "@/assets/obj3d-headphones.webp";
 import keys from "@/assets/obj3d-keys.webp";
@@ -452,7 +452,7 @@ function TinkerScene() {
       </Note>
       <Object src={laptop} alt="a laptop covered in stickers" label="this is where most things begin." style={at(106, 19)} size="sm" delay="0s" />
       <Object src={camera} alt="an instant camera" label="i like keeping little pieces of time." style={at(104, 60)} size="sm" delay=".6s" />
-      <Object src={cat} alt="a cat wearing sunglasses" label="head of distraction." style={at(124, 68)} size="sm" delay="1.2s" />
+      <Object src="/headphones.png" alt="a pair of over-ear headphones" label="a little space to think." style={at(124, 68)} size="sm" delay="1.2s" />
       <Object src={keys} alt="a set of keycaps" label="one more idea. just one." style={at(136, 18)} size="sm" delay=".3s" />
       <Object src={badminton} alt="a badminton racket and shuttle" label="let's do a match?" style={at(150, 68)} size="sm" delay="1.5s" />
     
@@ -568,7 +568,7 @@ function Climber() {
         }}
       >
         <div className={cn("h-full w-full", pose.reach === 0 && "animate-hang")}>
-          <Figure src={climber} alt="someone hanging from the thread" label="apparently i like climbing things." size="fill" still labelStyle={{ rotate: `${-(pose.angle + pose.reach * 7)}deg` }} />
+          <Figure src={climber} alt="someone hanging from the thread" size="fill" still labelStyle={{ rotate: `${-(pose.angle + pose.reach * 7)}deg` }} />
         </div>
       </div>
     </div>
@@ -916,7 +916,6 @@ function MobileClimber() {
       <Figure
         src={climber}
         alt="someone hanging from the thread"
-        label="apparently i like climbing things."
         size="fill"
         hang={!dragging}
         still={dragging}
@@ -1065,7 +1064,7 @@ function MobileStory({ ready, onWork }: { ready: boolean; onWork: () => void }) 
         </div>
         <Anchor x="95%" y={590} />
         <MobileObject src={camera} alt="an instant camera" label="i like keeping little pieces of time." style={{ left: "4%", top: 630 }} delay=".8s" />
-        <MobileObject src={cat} alt="a cat wearing sunglasses" label="head of distraction." style={{ right: "3%", top: 820 }} delay="1.2s" />
+        <MobileObject src="/headphones.png" alt="a pair of over-ear headphones" label="a little space to think." style={{ right: "3%", top: 820 }} delay="1.2s" />
         <MobileObject src={badminton} alt="a badminton racket and shuttle" label="competitive. occasionally." style={{ left: "6%", top: 1010 }} delay="1.6s" />
         {/* the climber gets her own stretch of thread to be dragged along */}
 
