@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type R
 import badminton from "@/assets/obj3d-badminton.webp";
 import astronaut from "@/assets/obj3d-astronaut.webp";
 import brain from "@/assets/obj3d-brain.webp";
-import camera from "@/assets/obj3d-camera.webp";
+
 
 import globe from "@/assets/obj3d-globe.webp";
 import headphones from "@/assets/obj3d-headphones.webp";
@@ -451,8 +451,8 @@ function TinkerScene() {
         <p className="mt-2 text-lg text-muted-foreground">what starts as a UI usually turns into a product.</p>
       </Note>
       <Object src={laptop} alt="a laptop covered in stickers" label="this is where most things begin." style={at(106, 19)} size="sm" delay="0s" />
-      <Object src={camera} alt="an instant camera" label="i like keeping little pieces of time." style={at(104, 60)} size="sm" delay=".6s" />
-      <Object src="/headphones.png" alt="a pair of over-ear headphones" label="a little space to think." style={at(124, 68)} size="sm" delay="1.2s" />
+      <Object src="/running-shoes.png" alt="a pair of running shoes" label="one more mile?" style={at(104, 60)} size="sm" delay=".6s" />
+      <Object src="/headphones.png" alt="a pair of over-ear headphones" label="always chasing a good beat." style={at(124, 68)} size="sm" delay="1.2s" />
       <Object src={keys} alt="a set of keycaps" label="one more idea. just one." style={at(136, 18)} size="sm" delay=".3s" />
       <Object src={badminton} alt="a badminton racket and shuttle" label="let's do a match?" style={at(150, 68)} size="sm" delay="1.5s" />
     
@@ -1063,8 +1063,8 @@ function MobileStory({ ready, onWork }: { ready: boolean; onWork: () => void }) 
           <p className="mt-1 text-sm text-muted-foreground">what a cool way to say i fall down rabbit holes.</p>
         </div>
         <Anchor x="95%" y={590} />
-        <MobileObject src={camera} alt="an instant camera" label="i like keeping little pieces of time." style={{ left: "4%", top: 630 }} delay=".8s" />
-        <MobileObject src="/headphones.png" alt="a pair of over-ear headphones" label="a little space to think." style={{ right: "3%", top: 820 }} delay="1.2s" />
+        <MobileObject src="/running-shoes.png" alt="a pair of running shoes" label="one more mile?" style={{ left: "4%", top: 630 }} delay=".8s" />
+        <MobileObject src="/headphones.png" alt="a pair of over-ear headphones" label="always chasing a good beat." style={{ right: "3%", top: 820 }} delay="1.2s" />
         <MobileObject src={badminton} alt="a badminton racket and shuttle" label="competitive. occasionally." style={{ left: "6%", top: 1010 }} delay="1.6s" />
         {/* the climber gets her own stretch of thread to be dragged along */}
 
