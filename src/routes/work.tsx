@@ -154,7 +154,7 @@ function WorkPage() {
           <Link to="/" className="hover:text-white">brain</Link>
           <span className="text-white underline underline-offset-8">work</span>
           <a href="https://www.linkedin.com/in/mrmade" target="_blank" rel="noreferrer" className="hover:text-white">linkedin</a>
-          <a href="mailto:theadeleyematthew@gmail.com" className="hover:text-white">let's talk</a>
+          <a href="mailto:meetmatthew@icloud.com" className="hover:text-white">let's talk</a>
         </nav>
         <ClimbBackButton className="text-sm font-medium text-white/80 hover:text-white md:hidden">climb out ↑</ClimbBackButton>
       </header>

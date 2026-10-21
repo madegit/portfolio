@@ -2,11 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, ArrowUpRight, Moon, Sun } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from "react";
 
-import brain from "@/assets/obj3d-brain.webp";
-
-
 import globe from "@/assets/obj3d-globe.webp";
-import headphones from "@/assets/obj3d-headphones.webp";
 
 
 
@@ -36,7 +32,7 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-const EMAIL = "theadeleyematthew@gmail.com";
+const EMAIL = "meetmatthew@icloud.com";
 const LINKS = {
   linkedin: "https://www.linkedin.com/in/mrmade",
   github: "https://github.com/madegit",
@@ -199,7 +195,7 @@ function Portfolio() {
     };
   }, []);
   const [filter, setFilter] = useState("All");
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDark);
@@ -574,8 +570,8 @@ function Climber() {
 
 const heart = [
   { src: globe, alt: "a globe wrapped in orbits", x: 200, y: 56, title: "product design came first.", body: "got curious about systems that don't need one person in charge.", label: "yes, i'm still here." },
-  { src: headphones, alt: "a pair of headphones", x: 224, y: 22, title: "turns out, i like coding too.", body: "explaining things is pretty fun too.", label: "docs, talks, demos, communities." },
-  { src: brain, alt: "a brain", x: 260, y: 60, title: "and now, AI.", body: "half engineer. half “what if?”", label: "still trying to understand this thing." },
+  { src: "/code.png", alt: "a coding illustration", x: 224, y: 22, title: "turns out, i like coding too.", body: "explaining things is pretty fun too.", label: "docs, talks, demos, communities." },
+  { src: "/brain.png", alt: "a glowing purple brain", x: 260, y: 60, title: "and now, AI.", body: "half engineer. half “what if?”", label: "still trying to understand this thing." },
 ];
 
 // but few things have my heart — each one an object with a big line and a
@@ -1286,7 +1282,7 @@ function MeCutout({ visible, phone = false, imgRef }: { visible: boolean; phone?
         onPointerUp={letGo}
         onPointerCancel={letGo}
         className={cn(
-          phone ? "relative block h-auto w-full touch-none select-none" : "pointer-events-auto absolute h-[70vh] w-auto max-w-none touch-none select-none",
+          phone ? "relative block h-auto w-full touch-none select-none" : "pointer-events-auto absolute h-[76vh] w-auto max-w-none touch-none select-none",
           dragging ? "cursor-grabbing" : "cursor-grab",
           visible ? "opacity-100" : "opacity-0",
         )}
@@ -1454,7 +1450,7 @@ function ScribbleArrow({ d, head, className, style }: { d: string; head: string;
         </svg>
         <MeCutout visible={stage.reached} />
         <div {...arrive(stage.reached, ".3s", "absolute", { left: `${HAND_X + 9.5}vw`, top: "32vh" })}>
-          <Scribble className="w-36" rotate={-14}>same girl...<br />just more<br />ideas now.</Scribble>
+          <Scribble className="w-36" rotate={-14}>same guy...<br />just more<br />ideas now.</Scribble>
           <ScribbleArrow className="-left-2 top-24" d="M30 4 C32 20 22 32 6 36" head="M6 36 L16 29 M6 36 L15 42" />
         </div>
         <div {...arrive(stage.reached, ".6s", "absolute", { left: `${HAND_X + 9.5}vw`, top: "65vh" })}>
