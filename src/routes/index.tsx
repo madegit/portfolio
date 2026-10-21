@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, ArrowUpRight, Moon, Sun } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from "react";
 
-import astronaut from "@/assets/obj3d-astronaut.webp";
 import brain from "@/assets/obj3d-brain.webp";
 
 
@@ -1287,7 +1286,7 @@ function MeCutout({ visible, phone = false, imgRef }: { visible: boolean; phone?
         onPointerUp={letGo}
         onPointerCancel={letGo}
         className={cn(
-          phone ? "relative block h-auto w-full touch-none select-none" : "pointer-events-auto absolute h-[76vh] w-auto max-w-none touch-none select-none",
+          phone ? "relative block h-auto w-full touch-none select-none" : "pointer-events-auto absolute h-[70vh] w-auto max-w-none touch-none select-none",
           dragging ? "cursor-grabbing" : "cursor-grab",
           visible ? "opacity-100" : "opacity-0",
         )}
@@ -1482,22 +1481,11 @@ function ScribbleArrow({ d, head, className, style }: { d: string; head: string;
             <a href={LINKS.linkedin} target="_blank" rel="noreferrer" className={cn(pill, "border border-foreground/50 py-2.5 hover:bg-foreground/5 max-md:bg-background")} data-cursor="the professional version.">linkedin <ArrowUpRight className="h-4 w-4" /></a>
             <a href={LINKS.github} target="_blank" rel="noreferrer" className={cn(pill, "border border-foreground/50 py-2.5 hover:bg-foreground/5 max-md:bg-background")} data-cursor="where the rabbit holes live.">github <ArrowUpRight className="h-4 w-4" /></a>
           </div>
-          {/* the astronaut sits just past the buttons, its fun fact scribbled beside it */}
-          <div className="absolute bottom-[-1.75rem] left-[calc(100%+5vw)] hidden items-end gap-1 md:flex">
-            <div className="relative mb-24">
-              <Scribble className="w-36" rotate={-10}>fun fact:<br />i've probably started<br />more projects than i can<br />remember.</Scribble>
-              <ScribbleArrow className="-right-8 top-[4.5rem]" d="M4 8 C8 22 18 30 34 30" head="M34 30 L25 24 M34 30 L26 37" />
-            </div>
-            <Figure src={astronaut} alt="a small astronaut holding a star" label="still aiming for the stars. just with code." size="sm" />
-          </div>
+
         </div>
         <div className="relative ml-auto mt-16 w-[58%] md:hidden">
           <MeCutout phone visible={phoneReached} imgRef={phoneImgRef} />
-          {/* the astronaut, standing by my legs, with its fun fact above it */}
-          <div className="absolute bottom-[1%] right-[66%] flex w-40 flex-col items-center">
-            <Scribble className="mb-1 w-36 text-center" rotate={-8}>fun fact:<br />i've probably started<br />more projects than i can<br />remember.</Scribble>
-            <Figure src={astronaut} alt="a small astronaut holding a star" label="still aiming for the stars. just with code." size="sm" />
-          </div>
+
         </div>
       </div>
 
