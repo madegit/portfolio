@@ -5,14 +5,12 @@ import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type R
 import badminton from "@/assets/obj3d-badminton.webp";
 import astronaut from "@/assets/obj3d-astronaut.webp";
 import brain from "@/assets/obj3d-brain.webp";
-import camera from "@/assets/obj3d-camera.webp";
-import cat from "@/assets/obj3d-cat.webp";
-import climber from "@/assets/obj3d-climber.webp";
+
+
 import globe from "@/assets/obj3d-globe.webp";
 import headphones from "@/assets/obj3d-headphones.webp";
-import keys from "@/assets/obj3d-keys.webp";
+
 import me from "@/assets/me.webp";
-import laptop from "@/assets/obj3d-laptop.webp";
 
 import { CLIMBED_OUT, RabbitHoleButton, takeFlag } from "@/components/rabbit-hole";
 import { Button } from "@/components/ui/button";
@@ -451,12 +449,12 @@ function TinkerScene() {
         <h2 className="whitespace-nowrap font-serif text-6xl leading-tight">until i get curious.</h2>
         <p className="mt-2 text-lg text-muted-foreground">what starts as a UI usually turns into a product.</p>
       </Note>
-      <Object src={laptop} alt="a laptop covered in stickers" label="this is where most things begin." style={at(106, 19)} size="sm" delay="0s" />
-      <Object src={camera} alt="an instant camera" label="i like keeping little pieces of time." style={at(104, 60)} size="sm" delay=".6s" />
-      <Object src={cat} alt="a cat wearing sunglasses" label="head of distraction." style={at(124, 68)} size="sm" delay="1.2s" />
-      <Object src={keys} alt="a set of keycaps" label="one more idea. just one." style={at(136, 18)} size="sm" delay=".3s" />
+      <Object src="/macbook.png" alt="a silver MacBook" label="this is where most things begin." style={at(106, 19)} size="sm" delay="0s" />
+      <Object src="/running-shoes.png" alt="a pair of running shoes" label="one more mile?" style={at(104, 60)} size="sm" delay=".6s" />
+      <Object src="/headphones.png" alt="a pair of over-ear headphones" label="always chasing a good beat." style={at(124, 68)} size="sm" delay="1.2s" />
+      <Object src="/keyboard.png" alt="a white keyboard" label="one more idea. just one." style={at(136, 18)} size="sm" delay=".3s" />
       <Object src={badminton} alt="a badminton racket and shuttle" label="let's do a match?" style={at(150, 68)} size="sm" delay="1.5s" />
-      <Climber />
+    
     </div>
   );
 }
@@ -569,7 +567,7 @@ function Climber() {
         }}
       >
         <div className={cn("h-full w-full", pose.reach === 0 && "animate-hang")}>
-          <Figure src={climber} alt="someone hanging from the thread" label="apparently i like climbing things." size="fill" still labelStyle={{ rotate: `${-(pose.angle + pose.reach * 7)}deg` }} />
+          <Figure src={climber} alt="someone hanging from the thread" size="fill" still labelStyle={{ rotate: `${-(pose.angle + pose.reach * 7)}deg` }} />
         </div>
       </div>
     </div>
@@ -917,7 +915,6 @@ function MobileClimber() {
       <Figure
         src={climber}
         alt="someone hanging from the thread"
-        label="apparently i like climbing things."
         size="fill"
         hang={!dragging}
         still={dragging}
@@ -1056,8 +1053,8 @@ function MobileStory({ ready, onWork }: { ready: boolean; onWork: () => void }) 
       {/* i tinker with a lot of stuff — objects spread out on alternating sides */}
       <div className="relative h-[1500px]">
         <span data-say="careful. rabbit holes ahead." className="absolute left-0 top-0 h-px w-px" />
-        <MobileObject src={laptop} alt="a laptop covered in stickers" label="this is where most things begin." style={{ left: "3%", top: 20 }} delay="0s" />
-        <MobileObject src={keys} alt="a set of keycaps" label="one more idea. just one." style={{ right: "5%", top: 190 }} delay=".4s" />
+<MobileObject src="/macbook.png" alt="a silver MacBook" label="this is where most things begin." style={{ left: "3%", top: 20 }} delay="0s" />
+  <MobileObject src="/keyboard.png" alt="a white keyboard" label="one more idea. just one." style={{ right: "5%", top: 190 }} delay=".4s" />
         <Anchor x="95%" y={400} />
         <div className="reveal absolute inset-x-0 top-[420px] mx-auto max-w-[17rem] text-center">
           <p className="text-muted-foreground">i tinker with a lot of stuff.</p>
@@ -1065,13 +1062,11 @@ function MobileStory({ ready, onWork }: { ready: boolean; onWork: () => void }) 
           <p className="mt-1 text-sm text-muted-foreground">what a cool way to say i fall down rabbit holes.</p>
         </div>
         <Anchor x="95%" y={590} />
-        <MobileObject src={camera} alt="an instant camera" label="i like keeping little pieces of time." style={{ left: "4%", top: 630 }} delay=".8s" />
-        <MobileObject src={cat} alt="a cat wearing sunglasses" label="head of distraction." style={{ right: "3%", top: 820 }} delay="1.2s" />
+        <MobileObject src="/running-shoes.png" alt="a pair of running shoes" label="one more mile?" style={{ left: "4%", top: 630 }} delay=".8s" />
+        <MobileObject src="/headphones.png" alt="a pair of over-ear headphones" label="always chasing a good beat." style={{ right: "3%", top: 820 }} delay="1.2s" />
         <MobileObject src={badminton} alt="a badminton racket and shuttle" label="competitive. occasionally." style={{ left: "6%", top: 1010 }} delay="1.6s" />
         {/* the climber gets her own stretch of thread to be dragged along */}
-        <Anchor x="4%" y={CLIMB_Y0} />
-        <MobileClimber />
-        <Anchor x="96%" y={CLIMB_Y1} />
+
       </div>
 
       {/* but few things have my heart — object above its words, alternating sides */}
