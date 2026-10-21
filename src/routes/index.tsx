@@ -9,9 +9,8 @@ import brain from "@/assets/obj3d-brain.webp";
 
 import globe from "@/assets/obj3d-globe.webp";
 import headphones from "@/assets/obj3d-headphones.webp";
-import keys from "@/assets/obj3d-keys.webp";
+
 import me from "@/assets/me.webp";
-import laptop from "@/assets/obj3d-laptop.webp";
 
 import { CLIMBED_OUT, RabbitHoleButton, takeFlag } from "@/components/rabbit-hole";
 import { Button } from "@/components/ui/button";
@@ -450,10 +449,10 @@ function TinkerScene() {
         <h2 className="whitespace-nowrap font-serif text-6xl leading-tight">until i get curious.</h2>
         <p className="mt-2 text-lg text-muted-foreground">what starts as a UI usually turns into a product.</p>
       </Note>
-      <Object src={laptop} alt="a laptop covered in stickers" label="this is where most things begin." style={at(106, 19)} size="sm" delay="0s" />
+      <Object src="/macbook.png" alt="a silver MacBook" label="this is where most things begin." style={at(106, 19)} size="sm" delay="0s" />
       <Object src="/running-shoes.png" alt="a pair of running shoes" label="one more mile?" style={at(104, 60)} size="sm" delay=".6s" />
       <Object src="/headphones.png" alt="a pair of over-ear headphones" label="always chasing a good beat." style={at(124, 68)} size="sm" delay="1.2s" />
-      <Object src={keys} alt="a set of keycaps" label="one more idea. just one." style={at(136, 18)} size="sm" delay=".3s" />
+      <Object src="/keyboard.png" alt="a white keyboard" label="one more idea. just one." style={at(136, 18)} size="sm" delay=".3s" />
       <Object src={badminton} alt="a badminton racket and shuttle" label="let's do a match?" style={at(150, 68)} size="sm" delay="1.5s" />
     
     </div>
@@ -1054,8 +1053,8 @@ function MobileStory({ ready, onWork }: { ready: boolean; onWork: () => void }) 
       {/* i tinker with a lot of stuff — objects spread out on alternating sides */}
       <div className="relative h-[1500px]">
         <span data-say="careful. rabbit holes ahead." className="absolute left-0 top-0 h-px w-px" />
-        <MobileObject src={laptop} alt="a laptop covered in stickers" label="this is where most things begin." style={{ left: "3%", top: 20 }} delay="0s" />
-        <MobileObject src={keys} alt="a set of keycaps" label="one more idea. just one." style={{ right: "5%", top: 190 }} delay=".4s" />
+<MobileObject src="/macbook.png" alt="a silver MacBook" label="this is where most things begin." style={{ left: "3%", top: 20 }} delay="0s" />
+  <MobileObject src="/keyboard.png" alt="a white keyboard" label="one more idea. just one." style={{ right: "5%", top: 190 }} delay=".4s" />
         <Anchor x="95%" y={400} />
         <div className="reveal absolute inset-x-0 top-[420px] mx-auto max-w-[17rem] text-center">
           <p className="text-muted-foreground">i tinker with a lot of stuff.</p>
