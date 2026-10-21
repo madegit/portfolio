@@ -7,7 +7,6 @@ import astronaut from "@/assets/obj3d-astronaut.webp";
 import brain from "@/assets/obj3d-brain.webp";
 import camera from "@/assets/obj3d-camera.webp";
 import cat from "@/assets/obj3d-cat.webp";
-import climber from "@/assets/obj3d-climber.webp";
 import globe from "@/assets/obj3d-globe.webp";
 import headphones from "@/assets/obj3d-headphones.webp";
 import keys from "@/assets/obj3d-keys.webp";
@@ -456,7 +455,7 @@ function TinkerScene() {
       <Object src={cat} alt="a cat wearing sunglasses" label="head of distraction." style={at(124, 68)} size="sm" delay="1.2s" />
       <Object src={keys} alt="a set of keycaps" label="one more idea. just one." style={at(136, 18)} size="sm" delay=".3s" />
       <Object src={badminton} alt="a badminton racket and shuttle" label="let's do a match?" style={at(150, 68)} size="sm" delay="1.5s" />
-      <Climber />
+    
     </div>
   );
 }
@@ -1069,9 +1068,7 @@ function MobileStory({ ready, onWork }: { ready: boolean; onWork: () => void }) 
         <MobileObject src={cat} alt="a cat wearing sunglasses" label="head of distraction." style={{ right: "3%", top: 820 }} delay="1.2s" />
         <MobileObject src={badminton} alt="a badminton racket and shuttle" label="competitive. occasionally." style={{ left: "6%", top: 1010 }} delay="1.6s" />
         {/* the climber gets her own stretch of thread to be dragged along */}
-        <Anchor x="4%" y={CLIMB_Y0} />
-        <MobileClimber />
-        <Anchor x="96%" y={CLIMB_Y1} />
+
       </div>
 
       {/* but few things have my heart — object above its words, alternating sides */}
