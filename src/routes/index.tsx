@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, ArrowUpRight, Moon, Sun } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from "react";
 
-import badminton from "@/assets/obj3d-badminton.webp";
 import astronaut from "@/assets/obj3d-astronaut.webp";
 import brain from "@/assets/obj3d-brain.webp";
 
@@ -453,7 +452,7 @@ function TinkerScene() {
       <Object src="/running-shoes.png" alt="a pair of running shoes" label="one more mile?" style={at(104, 60)} size="sm" delay=".6s" />
       <Object src="/headphones.png" alt="a pair of over-ear headphones" label="always chasing a good beat." style={at(124, 68)} size="sm" delay="1.2s" />
       <Object src="/keyboard.png" alt="a white keyboard" label="one more idea. just one." style={at(136, 18)} size="sm" delay=".3s" />
-      <Object src={badminton} alt="a badminton racket and shuttle" label="let's do a match?" style={at(150, 68)} size="sm" delay="1.5s" />
+      <Object src="/game-controller.png" alt="a black-and-white game controller" label="let&apos;s play a match?" style={at(150, 68)} size="sm" delay="1.5s" />
     
     </div>
   );
@@ -1064,7 +1063,7 @@ function MobileStory({ ready, onWork }: { ready: boolean; onWork: () => void }) 
         <Anchor x="95%" y={590} />
         <MobileObject src="/running-shoes.png" alt="a pair of running shoes" label="one more mile?" style={{ left: "4%", top: 630 }} delay=".8s" />
         <MobileObject src="/headphones.png" alt="a pair of over-ear headphones" label="always chasing a good beat." style={{ right: "3%", top: 820 }} delay="1.2s" />
-        <MobileObject src={badminton} alt="a badminton racket and shuttle" label="competitive. occasionally." style={{ left: "6%", top: 1010 }} delay="1.6s" />
+        <MobileObject src="/game-controller.png" alt="a black-and-white game controller" label="competitive. occasionally." style={{ left: "6%", top: 1010 }} delay="1.6s" />
         {/* the climber gets her own stretch of thread to be dragged along */}
 
       </div>
