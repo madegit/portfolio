@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, ArrowUpRight, Moon, Sun } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from "react";
 
-import globe from "@/assets/obj3d-globe.webp";
 
 
 
@@ -569,9 +568,9 @@ function Climber() {
 }
 
 const heart = [
-  { src: globe, alt: "a globe wrapped in orbits", x: 200, y: 56, title: "product design came first.", body: "got curious about systems that don't need one person in charge.", label: "yes, i'm still here." },
-  { src: "/code.png", alt: "a coding illustration", x: 224, y: 22, title: "turns out, i like coding too.", body: "explaining things is pretty fun too.", label: "docs, talks, demos, communities." },
-  { src: "/brain.png", alt: "a glowing purple brain", x: 260, y: 60, title: "and now, AI.", body: "half engineer. half “what if?”", label: "still trying to understand this thing." },
+  { src: "/product-design.png", alt: "a laptop displaying a sustainable design on a wooden chair", x: 200, y: 56, title: "product design came first.", body: "i was drawn to creating user experiences that make complex ideas feel simple.", label: "yes, i'm still here." },
+  { src: "/code.png", alt: "a coding illustration", x: 224, y: 22, title: "turns out, i like coding too.", body: "i love turning thoughtful ideas into useful products, and sharing what i learn along the way.", label: "docs, talks, demos, communities." },
+  { src: "/ai-robot.png", alt: "a friendly white AI robot", x: 260, y: 60, title: "and now, AI.", body: "half engineer. half “what if?”", label: "still trying to understand this thing." },
 ];
 
 // but few things have my heart — each one an object with a big line and a
@@ -645,8 +644,7 @@ function TimelineScene() {
         );
       })}
       {/* Each phrase fades in as the thread passes over it, like the years. */}
-      <Note x={302} y={84} className="reveal" at={302}><p className="whitespace-nowrap font-serif text-5xl">somehow, <span className="text-muted-foreground">i keep ending up...</span></p></Note>
-      <Note x={346} y={84} className="reveal" at={346}><p className="whitespace-nowrap font-serif text-5xl"><span className="text-muted-foreground">taking</span> ownership.</p></Note>
+      <Note x={302} y={84} className="reveal" at={302}><p className="whitespace-nowrap font-serif text-5xl">somehow, <span className="text-muted-foreground">I kept building...</span></p></Note>
       <Note x={380} y={83} className="reveal w-[25rem] text-lg leading-snug" at={380}>
         <p>most things i got curious about, i ended up building.</p>
         <p className="text-muted-foreground">most things i built, i ended up looking after.</p>
@@ -1086,11 +1084,11 @@ function MobileStory({ ready, onWork }: { ready: boolean; onWork: () => void }) 
         })}
       </div>
 
-      {/* somehow, i keep ending up... — the years hang off the thread */}
+      {/* somehow, I kept building... — the years hang off the thread */}
       <div className="relative mt-20 px-5">
         <span data-say="the short version. very short." className="absolute left-0 top-20 h-px w-px" />
         <Anchor x="6%" y={-20} />
-        <p className="reveal mx-auto max-w-[18rem] text-center font-serif text-[2rem] leading-tight">somehow,<br /><span className="text-muted-foreground">i keep ending up...</span></p>
+        <p className="reveal mx-auto max-w-[18rem] text-center font-serif text-[2rem] leading-tight">somehow,<br /><span className="text-muted-foreground">I kept building...</span></p>
         <ol className="relative mt-10 pl-9">
           {timeline.map((stop) => (
             <li key={stop.year + stop.title} className="reveal relative pb-7">
