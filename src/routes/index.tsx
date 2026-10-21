@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, ArrowUpRight, Moon, Sun } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from "react";
 
-import badminton from "@/assets/obj3d-badminton.webp";
 import astronaut from "@/assets/obj3d-astronaut.webp";
 import brain from "@/assets/obj3d-brain.webp";
 
@@ -10,7 +9,7 @@ import brain from "@/assets/obj3d-brain.webp";
 import globe from "@/assets/obj3d-globe.webp";
 import headphones from "@/assets/obj3d-headphones.webp";
 
-import me from "@/assets/me.webp";
+
 
 import { CLIMBED_OUT, RabbitHoleButton, takeFlag } from "@/components/rabbit-hole";
 import { Button } from "@/components/ui/button";
@@ -453,7 +452,7 @@ function TinkerScene() {
       <Object src="/running-shoes.png" alt="a pair of running shoes" label="one more mile?" style={at(104, 60)} size="sm" delay=".6s" />
       <Object src="/headphones.png" alt="a pair of over-ear headphones" label="always chasing a good beat." style={at(124, 68)} size="sm" delay="1.2s" />
       <Object src="/keyboard.png" alt="a white keyboard" label="one more idea. just one." style={at(136, 18)} size="sm" delay=".3s" />
-      <Object src={badminton} alt="a badminton racket and shuttle" label="let's do a match?" style={at(150, 68)} size="sm" delay="1.5s" />
+      <Object src="/game-controller-black.png" alt="a black game controller" label="let&apos;s play a match?" style={at(150, 68)} size="sm" delay="1.5s" />
     
     </div>
   );
@@ -575,8 +574,8 @@ function Climber() {
 }
 
 const heart = [
-  { src: globe, alt: "a globe wrapped in orbits", x: 200, y: 56, title: "web3 came first.", body: "got curious about systems that don't need one person in charge.", label: "yes, i'm still here." },
-  { src: headphones, alt: "a pair of headphones", x: 224, y: 22, title: "turns out, i like people too.", body: "explaining things is pretty fun too.", label: "docs, talks, demos, communities." },
+  { src: globe, alt: "a globe wrapped in orbits", x: 200, y: 56, title: "product design came first.", body: "got curious about systems that don't need one person in charge.", label: "yes, i'm still here." },
+  { src: headphones, alt: "a pair of headphones", x: 224, y: 22, title: "turns out, i like coding too.", body: "explaining things is pretty fun too.", label: "docs, talks, demos, communities." },
   { src: brain, alt: "a brain", x: 260, y: 60, title: "and now, AI.", body: "half engineer. half “what if?”", label: "still trying to understand this thing." },
 ];
 
@@ -1064,7 +1063,7 @@ function MobileStory({ ready, onWork }: { ready: boolean; onWork: () => void }) 
         <Anchor x="95%" y={590} />
         <MobileObject src="/running-shoes.png" alt="a pair of running shoes" label="one more mile?" style={{ left: "4%", top: 630 }} delay=".8s" />
         <MobileObject src="/headphones.png" alt="a pair of over-ear headphones" label="always chasing a good beat." style={{ right: "3%", top: 820 }} delay="1.2s" />
-        <MobileObject src={badminton} alt="a badminton racket and shuttle" label="competitive. occasionally." style={{ left: "6%", top: 1010 }} delay="1.6s" />
+        <MobileObject src="/game-controller-black.png" alt="a black game controller" label="competitive. occasionally." style={{ left: "6%", top: 1010 }} delay="1.6s" />
         {/* the climber gets her own stretch of thread to be dragged along */}
 
       </div>
@@ -1269,8 +1268,8 @@ function MeCutout({ visible, phone = false, imgRef }: { visible: boolean; phone?
       </div>
       <img
         ref={imgRef}
-        src={me}
-        alt="Matthew, one hand up in a peace sign, holding the end of the thread"
+        src="/matthew-football.png"
+        alt="Matthew standing in a green football jersey"
         draggable={false}
         onContextMenu={(e) => e.preventDefault()}
         data-cursor=""
